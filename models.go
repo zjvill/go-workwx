@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func marshalIntoJSONBody(x interface{}) ([]byte, error) {
+func marshalIntoJSONBody(x any) ([]byte, error) {
 	y, err := json.Marshal(x)
 	if err != nil {
 		// should never happen unless OOM or similar bad things
@@ -101,7 +101,7 @@ type reqMessage struct {
 	OpenKfID string
 	Code     string
 	MsgType  string
-	Content  map[string]interface{}
+	Content  map[string]any
 	IsSafe   bool
 }
 
@@ -114,7 +114,7 @@ func (x reqMessage) intoBody() ([]byte, error) {
 		safeInt = 1
 	}
 
-	obj := map[string]interface{}{
+	obj := map[string]any{
 		"msgtype": x.MsgType,
 		"agentid": x.AgentID,
 		"safe":    safeInt,
