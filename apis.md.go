@@ -9,9 +9,6 @@ func (c *WorkwxApp) execGetAccessToken(req reqAccessToken) (respAccessToken, err
 	if err != nil {
 		return respAccessToken{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respAccessToken{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -22,9 +19,6 @@ func (c *WorkwxApp) execGetJSAPITicket(req reqJSAPITicket) (respJSAPITicket, err
 	err := executeQyapiGet(c, "/cgi-bin/get_jsapi_ticket", req, &resp, true)
 	if err != nil {
 		return respJSAPITicket{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respJSAPITicket{}, bizErr
 	}
 
 	return resp, nil
@@ -37,9 +31,6 @@ func (c *WorkwxApp) execGetJSAPITicketAgentConfig(req reqJSAPITicketAgentConfig)
 	if err != nil {
 		return respJSAPITicket{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respJSAPITicket{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -50,9 +41,6 @@ func (c *WorkwxApp) execJSCode2Session(req reqJSCode2Session) (respJSCode2Sessio
 	err := executeQyapiGet(c, "/cgi-bin/miniprogram/jscode2session", req, &resp, true)
 	if err != nil {
 		return respJSCode2Session{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respJSCode2Session{}, bizErr
 	}
 
 	return resp, nil
@@ -65,9 +53,6 @@ func (c *WorkwxApp) execAuthCode2UserInfo(req reqAuthCode2UserInfo) (respAuthCod
 	if err != nil {
 		return respAuthCode2UserInfo{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respAuthCode2UserInfo{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -78,9 +63,6 @@ func (c *WorkwxApp) execUserGet(req reqUserGet) (respUserGet, error) {
 	err := executeQyapiGet(c, "/cgi-bin/user/get", req, &resp, true)
 	if err != nil {
 		return respUserGet{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respUserGet{}, bizErr
 	}
 
 	return resp, nil
@@ -93,9 +75,6 @@ func (c *WorkwxApp) execUserUpdate(req reqUserUpdate) (respUserUpdate, error) {
 	if err != nil {
 		return respUserUpdate{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respUserUpdate{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -106,9 +85,6 @@ func (c *WorkwxApp) execUserList(req reqUserList) (respUserList, error) {
 	err := executeQyapiGet(c, "/cgi-bin/user/list", req, &resp, true)
 	if err != nil {
 		return respUserList{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respUserList{}, bizErr
 	}
 
 	return resp, nil
@@ -121,9 +97,6 @@ func (c *WorkwxApp) execConvertUserIDToOpenID(req reqConvertUserIDToOpenID) (res
 	if err != nil {
 		return respConvertUserIDToOpenID{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respConvertUserIDToOpenID{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -134,9 +107,6 @@ func (c *WorkwxApp) execConvertOpenIDToUserID(req reqConvertOpenIDToUserID) (res
 	err := executeQyapiJSONPost(c, "/cgi-bin/user/convert_to_userid", req, &resp, true)
 	if err != nil {
 		return respConvertOpenIDToUserID{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respConvertOpenIDToUserID{}, bizErr
 	}
 
 	return resp, nil
@@ -149,9 +119,6 @@ func (c *WorkwxApp) execUserJoinQrcode(req reqUserJoinQrcode) (respUserJoinQrcod
 	if err != nil {
 		return respUserJoinQrcode{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respUserJoinQrcode{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -162,9 +129,6 @@ func (c *WorkwxApp) execUserIDByMobile(req reqUserIDByMobile) (respUserIDByMobil
 	err := executeQyapiJSONPost(c, "/cgi-bin/user/getuserid", req, &resp, true)
 	if err != nil {
 		return respUserIDByMobile{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respUserIDByMobile{}, bizErr
 	}
 
 	return resp, nil
@@ -177,9 +141,6 @@ func (c *WorkwxApp) execUserIDByEmail(req reqUserIDByEmail) (respUserIDByEmail, 
 	if err != nil {
 		return respUserIDByEmail{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respUserIDByEmail{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -190,9 +151,6 @@ func (c *WorkwxApp) execDeptCreate(req reqDeptCreate) (respDeptCreate, error) {
 	err := executeQyapiJSONPost(c, "/cgi-bin/department/create", req, &resp, true)
 	if err != nil {
 		return respDeptCreate{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respDeptCreate{}, bizErr
 	}
 
 	return resp, nil
@@ -205,9 +163,6 @@ func (c *WorkwxApp) execDeptList(req reqDeptList) (respDeptList, error) {
 	if err != nil {
 		return respDeptList{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respDeptList{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -218,9 +173,6 @@ func (c *WorkwxApp) execDeptSimpleList(req reqDeptSimpleList) (respDeptSimpleLis
 	err := executeQyapiGet(c, "/cgi-bin/department/simplelist", req, &resp, true)
 	if err != nil {
 		return respDeptSimpleList{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respDeptSimpleList{}, bizErr
 	}
 
 	return resp, nil
@@ -233,9 +185,6 @@ func (c *WorkwxApp) execUserInfoGet(req reqUserInfoGet) (respUserInfoGet, error)
 	if err != nil {
 		return respUserInfoGet{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respUserInfoGet{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -246,9 +195,6 @@ func (c *WorkwxApp) execExternalContactList(req reqExternalContactList) (respExt
 	err := executeQyapiGet(c, "/cgi-bin/externalcontact/list", req, &resp, true)
 	if err != nil {
 		return respExternalContactList{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respExternalContactList{}, bizErr
 	}
 
 	return resp, nil
@@ -261,9 +207,6 @@ func (c *WorkwxApp) execExternalContactGet(req reqExternalContactGet) (respExter
 	if err != nil {
 		return respExternalContactGet{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respExternalContactGet{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -274,9 +217,6 @@ func (c *WorkwxApp) execExternalContactBatchList(req reqExternalContactBatchList
 	err := executeQyapiJSONPost(c, "/cgi-bin/externalcontact/batch/get_by_user", req, &resp, true)
 	if err != nil {
 		return respExternalContactBatchList{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respExternalContactBatchList{}, bizErr
 	}
 
 	return resp, nil
@@ -289,9 +229,6 @@ func (c *WorkwxApp) execExternalContactRemark(req reqExternalContactRemark) (res
 	if err != nil {
 		return respExternalContactRemark{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respExternalContactRemark{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -302,9 +239,6 @@ func (c *WorkwxApp) execExternalContactListCorpTags(req reqExternalContactListCo
 	err := executeQyapiJSONPost(c, "/cgi-bin/externalcontact/get_corp_tag_list", req, &resp, true)
 	if err != nil {
 		return respExternalContactListCorpTags{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respExternalContactListCorpTags{}, bizErr
 	}
 
 	return resp, nil
@@ -317,9 +251,6 @@ func (c *WorkwxApp) execExternalContactAddCorpTag(req reqExternalContactAddCorpT
 	if err != nil {
 		return respExternalContactAddCorpTag{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respExternalContactAddCorpTag{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -330,9 +261,6 @@ func (c *WorkwxApp) execExternalContactEditCorpTag(req reqExternalContactEditCor
 	err := executeQyapiJSONPost(c, "/cgi-bin/externalcontact/edit_corp_tag", req, &resp, true)
 	if err != nil {
 		return respExternalContactEditCorpTag{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respExternalContactEditCorpTag{}, bizErr
 	}
 
 	return resp, nil
@@ -345,9 +273,6 @@ func (c *WorkwxApp) execExternalContactDelCorpTag(req reqExternalContactDelCorpT
 	if err != nil {
 		return respExternalContactDelCorpTag{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respExternalContactDelCorpTag{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -358,9 +283,6 @@ func (c *WorkwxApp) execExternalContactMarkTag(req reqExternalContactMarkTag) (r
 	err := executeQyapiJSONPost(c, "/cgi-bin/externalcontact/mark_tag", req, &resp, true)
 	if err != nil {
 		return respExternalContactMarkTag{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respExternalContactMarkTag{}, bizErr
 	}
 
 	return resp, nil
@@ -373,9 +295,6 @@ func (c *WorkwxApp) execListUnassignedExternalContact(req reqListUnassignedExter
 	if err != nil {
 		return respListUnassignedExternalContact{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respListUnassignedExternalContact{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -386,9 +305,6 @@ func (c *WorkwxApp) execTransferExternalContact(req reqTransferExternalContact) 
 	err := executeQyapiJSONPost(c, "/cgi-bin/externalcontact/transfer", req, &resp, true)
 	if err != nil {
 		return respTransferExternalContact{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respTransferExternalContact{}, bizErr
 	}
 
 	return resp, nil
@@ -401,9 +317,6 @@ func (c *WorkwxApp) execGetTransferExternalContactResult(req reqGetTransferExter
 	if err != nil {
 		return respGetTransferExternalContactResult{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respGetTransferExternalContactResult{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -414,9 +327,6 @@ func (c *WorkwxApp) execTransferGroupChatExternalContact(req reqTransferGroupCha
 	err := executeQyapiJSONPost(c, "/cgi-bin/externalcontact/groupchat/transfer", req, &resp, true)
 	if err != nil {
 		return respTransferGroupChatExternalContact{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respTransferGroupChatExternalContact{}, bizErr
 	}
 
 	return resp, nil
@@ -429,9 +339,6 @@ func (c *WorkwxApp) execAppchatCreate(req reqAppchatCreate) (respAppchatCreate, 
 	if err != nil {
 		return respAppchatCreate{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respAppchatCreate{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -442,9 +349,6 @@ func (c *WorkwxApp) execAppchatUpdate(req reqAppchatUpdate) (respAppchatUpdate, 
 	err := executeQyapiJSONPost(c, "/cgi-bin/appchat/update", req, &resp, true)
 	if err != nil {
 		return respAppchatUpdate{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respAppchatUpdate{}, bizErr
 	}
 
 	return resp, nil
@@ -457,9 +361,6 @@ func (c *WorkwxApp) execAppchatGet(req reqAppchatGet) (respAppchatGet, error) {
 	if err != nil {
 		return respAppchatGet{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respAppchatGet{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -470,9 +371,6 @@ func (c *WorkwxApp) execMessageSend(req reqMessage) (respMessageSend, error) {
 	err := executeQyapiJSONPost(c, "/cgi-bin/message/send", req, &resp, true)
 	if err != nil {
 		return respMessageSend{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respMessageSend{}, bizErr
 	}
 
 	return resp, nil
@@ -485,9 +383,6 @@ func (c *WorkwxApp) execAppchatSend(req reqMessage) (respMessageSend, error) {
 	if err != nil {
 		return respMessageSend{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respMessageSend{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -498,9 +393,6 @@ func (c *WorkwxApp) execMediaUpload(req reqMediaUpload) (respMediaUpload, error)
 	err := executeQyapiMediaUpload(c, "/cgi-bin/media/upload", req, &resp, true)
 	if err != nil {
 		return respMediaUpload{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respMediaUpload{}, bizErr
 	}
 
 	return resp, nil
@@ -513,9 +405,6 @@ func (c *WorkwxApp) execMediaUploadImg(req reqMediaUploadImg) (respMediaUploadIm
 	if err != nil {
 		return respMediaUploadImg{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respMediaUploadImg{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -526,9 +415,6 @@ func (c *WorkwxApp) execOAGetTemplateDetail(req reqOAGetTemplateDetail) (respOAG
 	err := executeQyapiJSONPost(c, "/cgi-bin/oa/gettemplatedetail", req, &resp, true)
 	if err != nil {
 		return respOAGetTemplateDetail{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respOAGetTemplateDetail{}, bizErr
 	}
 
 	return resp, nil
@@ -541,9 +427,6 @@ func (c *WorkwxApp) execOAApplyEvent(req reqOAApplyEvent) (respOAApplyEvent, err
 	if err != nil {
 		return respOAApplyEvent{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respOAApplyEvent{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -554,9 +437,6 @@ func (c *WorkwxApp) execOAGetApprovalInfo(req reqOAGetApprovalInfo) (respOAGetAp
 	err := executeQyapiJSONPost(c, "/cgi-bin/oa/getapprovalinfo", req, &resp, true)
 	if err != nil {
 		return respOAGetApprovalInfo{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respOAGetApprovalInfo{}, bizErr
 	}
 
 	return resp, nil
@@ -569,9 +449,6 @@ func (c *WorkwxApp) execOAGetApprovalDetail(req reqOAGetApprovalDetail) (respOAG
 	if err != nil {
 		return respOAGetApprovalDetail{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respOAGetApprovalDetail{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -582,9 +459,6 @@ func (c *WorkwxApp) execOAGetCorpVacationConf(req reqOAGetCorpVacationConf) (res
 	err := executeQyapiGet(c, "/cgi-bin/oa/vacation/getcorpconf", req, &resp, true)
 	if err != nil {
 		return respOAGetCorpVacationConf{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respOAGetCorpVacationConf{}, bizErr
 	}
 
 	return resp, nil
@@ -597,9 +471,6 @@ func (c *WorkwxApp) execOAGetUserVacationQuota(req reqOAGetUserVacationQuota) (r
 	if err != nil {
 		return respOAGetUserVacationQuota{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respOAGetUserVacationQuota{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -610,9 +481,6 @@ func (c *WorkwxApp) execOASetOneUserVacationQuota(req reqOASetOneUserVacationQuo
 	err := executeQyapiJSONPost(c, "/cgi-bin/oa/vacation/setoneuserquota", req, &resp, true)
 	if err != nil {
 		return respOASetOneUserVacationQuota{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respOASetOneUserVacationQuota{}, bizErr
 	}
 
 	return resp, nil
@@ -625,9 +493,6 @@ func (c *WorkwxApp) execMsgAuditListPermitUser(req reqMsgAuditListPermitUser) (r
 	if err != nil {
 		return respMsgAuditListPermitUser{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respMsgAuditListPermitUser{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -638,9 +503,6 @@ func (c *WorkwxApp) execMsgAuditCheckSingleAgree(req reqMsgAuditCheckSingleAgree
 	err := executeQyapiJSONPost(c, "/cgi-bin/msgaudit/check_single_agree", req, &resp, true)
 	if err != nil {
 		return respMsgAuditCheckSingleAgree{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respMsgAuditCheckSingleAgree{}, bizErr
 	}
 
 	return resp, nil
@@ -653,9 +515,6 @@ func (c *WorkwxApp) execMsgAuditCheckRoomAgree(req reqMsgAuditCheckRoomAgree) (r
 	if err != nil {
 		return respMsgAuditCheckRoomAgree{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respMsgAuditCheckRoomAgree{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -666,9 +525,6 @@ func (c *WorkwxApp) execMsgAuditGetGroupChat(req reqMsgAuditGetGroupChat) (respM
 	err := executeQyapiJSONPost(c, "/cgi-bin/msgaudit/groupchat/get", req, &resp, true)
 	if err != nil {
 		return respMsgAuditGetGroupChat{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respMsgAuditGetGroupChat{}, bizErr
 	}
 
 	return resp, nil
@@ -681,9 +537,6 @@ func (c *WorkwxApp) execListFollowUserExternalContact(req reqListFollowUserExter
 	if err != nil {
 		return respListFollowUserExternalContact{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respListFollowUserExternalContact{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -694,9 +547,6 @@ func (c *WorkwxApp) execAddContactExternalContact(req reqAddContactExternalConta
 	err := executeQyapiJSONPost(c, "/cgi-bin/externalcontact/add_contact_way", req, &resp, true)
 	if err != nil {
 		return respAddContactExternalContact{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respAddContactExternalContact{}, bizErr
 	}
 
 	return resp, nil
@@ -709,9 +559,6 @@ func (c *WorkwxApp) execGetContactWayExternalContact(req reqGetContactWayExterna
 	if err != nil {
 		return respGetContactWayExternalContact{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respGetContactWayExternalContact{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -722,9 +569,6 @@ func (c *WorkwxApp) execListContactWayChatExternalContact(req reqListContactWayE
 	err := executeQyapiJSONPost(c, "/cgi-bin/externalcontact/list_contact_way", req, &resp, true)
 	if err != nil {
 		return respListContactWayChatExternalContact{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respListContactWayChatExternalContact{}, bizErr
 	}
 
 	return resp, nil
@@ -737,9 +581,6 @@ func (c *WorkwxApp) execUpdateContactWayExternalContact(req reqUpdateContactWayE
 	if err != nil {
 		return respUpdateContactWayExternalContact{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respUpdateContactWayExternalContact{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -750,9 +591,6 @@ func (c *WorkwxApp) execDelContactWayExternalContact(req reqDelContactWayExterna
 	err := executeQyapiJSONPost(c, "/cgi-bin/externalcontact/del_contact_way", req, &resp, true)
 	if err != nil {
 		return respDelContactWayExternalContact{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respDelContactWayExternalContact{}, bizErr
 	}
 
 	return resp, nil
@@ -765,9 +603,6 @@ func (c *WorkwxApp) execCloseTempChatExternalContact(req reqCloseTempChatExterna
 	if err != nil {
 		return respCloseTempChatExternalContact{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respCloseTempChatExternalContact{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -778,9 +613,6 @@ func (c *WorkwxApp) execAddGroupChatJoinWayExternalContact(req reqAddGroupChatJo
 	err := executeQyapiJSONPost(c, "/cgi-bin/externalcontact/groupchat/add_join_way", req, &resp, true)
 	if err != nil {
 		return respAddGroupChatJoinWayExternalContact{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respAddGroupChatJoinWayExternalContact{}, bizErr
 	}
 
 	return resp, nil
@@ -793,9 +625,6 @@ func (c *WorkwxApp) execGetGroupChatJoinWayExternalContact(req reqGetGroupChatJo
 	if err != nil {
 		return respGetGroupChatJoinWayExternalContact{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respGetGroupChatJoinWayExternalContact{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -806,9 +635,6 @@ func (c *WorkwxApp) execUpdateGroupChatJoinWayExternalContact(req reqUpdateGroup
 	err := executeQyapiJSONPost(c, "/cgi-bin/externalcontact/groupchat/update_join_way", req, &resp, true)
 	if err != nil {
 		return respUpdateGroupChatJoinWayExternalContact{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respUpdateGroupChatJoinWayExternalContact{}, bizErr
 	}
 
 	return resp, nil
@@ -821,9 +647,6 @@ func (c *WorkwxApp) execDelGroupChatJoinWayExternalContact(req reqDelGroupChatJo
 	if err != nil {
 		return respDelGroupChatJoinWayExternalContact{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respDelGroupChatJoinWayExternalContact{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -834,9 +657,6 @@ func (c *WorkwxApp) execGroupChatListGet(req reqGroupChatList) (respGroupChatLis
 	err := executeQyapiJSONPost(c, "/cgi-bin/externalcontact/groupchat/list", req, &resp, true)
 	if err != nil {
 		return respGroupChatList{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respGroupChatList{}, bizErr
 	}
 
 	return resp, nil
@@ -849,9 +669,6 @@ func (c *WorkwxApp) execGroupChatInfoGet(req reqGroupChatInfo) (respGroupChatInf
 	if err != nil {
 		return respGroupChatInfo{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respGroupChatInfo{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -862,9 +679,6 @@ func (c *WorkwxApp) execConvertOpenGIDToChatID(req reqConvertOpenGIDToChatID) (r
 	err := executeQyapiJSONPost(c, "/cgi-bin/externalcontact/opengid_to_chatid", req, &resp, true)
 	if err != nil {
 		return respConvertOpenGIDToChatID{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respConvertOpenGIDToChatID{}, bizErr
 	}
 
 	return resp, nil
@@ -877,9 +691,6 @@ func (c *WorkwxApp) execTransferCustomer(req reqTransferCustomer) (respTransferC
 	if err != nil {
 		return respTransferCustomer{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respTransferCustomer{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -890,9 +701,6 @@ func (c *WorkwxApp) execGetTransferCustomerResult(req reqGetTransferCustomerResu
 	err := executeQyapiJSONPost(c, "/cgi-bin/externalcontact/transfer_result", req, &resp, true)
 	if err != nil {
 		return respGetTransferCustomerResult{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respGetTransferCustomerResult{}, bizErr
 	}
 
 	return resp, nil
@@ -905,9 +713,6 @@ func (c *WorkwxApp) execTransferResignedCustomer(req reqTransferCustomer) (respT
 	if err != nil {
 		return respTransferCustomer{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respTransferCustomer{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -918,9 +723,6 @@ func (c *WorkwxApp) execGetTransferResignedCustomerResult(req reqGetTransferCust
 	err := executeQyapiJSONPost(c, "/cgi-bin/externalcontact/resigned/transfer_result", req, &resp, true)
 	if err != nil {
 		return respGetTransferCustomerResult{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respGetTransferCustomerResult{}, bizErr
 	}
 
 	return resp, nil
@@ -933,9 +735,6 @@ func (c *WorkwxApp) execAddMsgTemplate(req reqAddMsgTemplateExternalContact) (re
 	if err != nil {
 		return respAddMsgTemplateExternalContact{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respAddMsgTemplateExternalContact{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -946,9 +745,6 @@ func (c *WorkwxApp) execSendWelcomeMsg(req reqSendWelcomeMsgExternalContact) (re
 	err := executeQyapiJSONPost(c, "/cgi-bin/externalcontact/send_welcome_msg", req, &resp, true)
 	if err != nil {
 		return respSendWelcomeMsgExternalContact{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respSendWelcomeMsgExternalContact{}, bizErr
 	}
 
 	return resp, nil
@@ -961,9 +757,6 @@ func (c *WorkwxApp) execKfAccountCreate(req reqKfAccountCreate) (respKfAccountCr
 	if err != nil {
 		return respKfAccountCreate{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respKfAccountCreate{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -974,9 +767,6 @@ func (c *WorkwxApp) execKfAccountUpdate(req reqKfAccountUpdate) (respKfAccountUp
 	err := executeQyapiJSONPost(c, "/cgi-bin/kf/account/update", req, &resp, true)
 	if err != nil {
 		return respKfAccountUpdate{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respKfAccountUpdate{}, bizErr
 	}
 
 	return resp, nil
@@ -989,9 +779,6 @@ func (c *WorkwxApp) execKfAccountDelete(req reqKfAccountDelete) (respKfAccountDe
 	if err != nil {
 		return respKfAccountDelete{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respKfAccountDelete{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -1002,9 +789,6 @@ func (c *WorkwxApp) execKfAccountList(req reqKfAccountList) (respKfAccountList, 
 	err := executeQyapiGet(c, "/cgi-bin/kf/account/list", req, &resp, true)
 	if err != nil {
 		return respKfAccountList{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respKfAccountList{}, bizErr
 	}
 
 	return resp, nil
@@ -1017,9 +801,6 @@ func (c *WorkwxApp) execAddKfContact(req reqAddKfContact) (respAddKfContact, err
 	if err != nil {
 		return respAddKfContact{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respAddKfContact{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -1030,9 +811,6 @@ func (c *WorkwxApp) execKfServicerCreate(req reqKfServicerCreate) (respKfService
 	err := executeQyapiJSONPost(c, "/cgi-bin/kf/servicer/add", req, &resp, true)
 	if err != nil {
 		return respKfServicerCreate{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respKfServicerCreate{}, bizErr
 	}
 
 	return resp, nil
@@ -1045,9 +823,6 @@ func (c *WorkwxApp) execKfServicerDelete(req reqKfServicerDelete) (respKfService
 	if err != nil {
 		return respKfServicerDelete{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respKfServicerDelete{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -1058,9 +833,6 @@ func (c *WorkwxApp) execKfServicerList(req reqKfServicerList) (respKfServicerLis
 	err := executeQyapiGet(c, "/cgi-bin/kf/servicer/list", req, &resp, true)
 	if err != nil {
 		return respKfServicerList{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respKfServicerList{}, bizErr
 	}
 
 	return resp, nil
@@ -1073,9 +845,6 @@ func (c *WorkwxApp) execKfServiceStateGet(req reqKfServiceStateGet) (respKfServi
 	if err != nil {
 		return respKfServiceStateGet{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respKfServiceStateGet{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -1086,9 +855,6 @@ func (c *WorkwxApp) execKfServiceStateTrans(req reqKfServiceStateTrans) (respKfS
 	err := executeQyapiJSONPost(c, "/cgi-bin/kf/service_state/trans", req, &resp, true)
 	if err != nil {
 		return respKfServiceStateTrans{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respKfServiceStateTrans{}, bizErr
 	}
 
 	return resp, nil
@@ -1101,9 +867,6 @@ func (c *WorkwxApp) execKfSyncMsg(req reqKfSyncMsg) (respKfSyncMsg, error) {
 	if err != nil {
 		return respKfSyncMsg{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respKfSyncMsg{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -1115,9 +878,6 @@ func (c *WorkwxApp) execKfSend(req reqMessage) (respMessageSend, error) {
 	if err != nil {
 		return respMessageSend{}, err
 	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respMessageSend{}, bizErr
-	}
 
 	return resp, nil
 }
@@ -1128,9 +888,6 @@ func (c *WorkwxApp) execKfOnEventSend(req reqMessage) (respMessageSend, error) {
 	err := executeQyapiJSONPost(c, "/cgi-bin/kf/send_msg_on_event", req, &resp, true)
 	if err != nil {
 		return respMessageSend{}, err
-	}
-	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return respMessageSend{}, bizErr
 	}
 
 	return resp, nil
