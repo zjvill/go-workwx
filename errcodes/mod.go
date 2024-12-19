@@ -5,7 +5,7 @@ package errcodes
 // ErrCode 错误码类型
 //
 // 全局错误码文档: https://developer.work.weixin.qq.com/document/path/90313
-// 文档爬取时间: 2024-04-08 19:03:10 +0800
+// 文档爬取时间: 2024-12-19 15:43:50 +0800
 //
 // NOTE: 关于错误码的名字为何如此无聊:
 //
@@ -259,12 +259,24 @@ const ErrCode40050 ErrCode = 40050
 
 // ErrCode40054 不合法的子菜单url域名
 //
-// 排查方法: [查看帮助](#错误码：40054 40055)
+// 排查方法: [查看帮助]
+//
+// 菜单设置URL不合法。确认：
+// 1）链接需要带上协议头。以 http:// 或者 https:// 开头。比如：https://work.weixin.qq.com
+// 2）微信支付的链接，必须以 weixin://wxpay/bizpayurl 开头
+//
+// [查看帮助]: https://developer.work.weixin.qq.com/document/path/90313#%E9%94%99%E8%AF%AF%E7%A0%81%EF%BC%9A40054%2040055
 const ErrCode40054 ErrCode = 40054
 
 // ErrCode40055 不合法的菜单url域名
 //
-// 排查方法: [查看帮助](#错误码：40054 40055)
+// 排查方法: [查看帮助]
+//
+// 菜单设置URL不合法。确认：
+// 1）链接需要带上协议头。以 http:// 或者 https:// 开头。比如：https://work.weixin.qq.com
+// 2）微信支付的链接，必须以 weixin://wxpay/bizpayurl 开头
+//
+// [查看帮助]: https://developer.work.weixin.qq.com/document/path/90313#%E9%94%99%E8%AF%AF%E7%A0%81%EF%BC%9A40054%2040055
 const ErrCode40055 ErrCode = 40055
 
 // ErrCode40056 不合法的agentid
@@ -476,7 +488,7 @@ const ErrCode40097 ErrCode = 40097
 // 排查方法: 确认传入的userid是已经过实名认证成员的
 const ErrCode40098 ErrCode = 40098
 
-// ErrCode40099 外部联系人的数量已达上限
+// ErrCode40099 成员的外部联系人数量已达上限
 //
 // 排查方法: -
 const ErrCode40099 ErrCode = 40099
@@ -490,6 +502,11 @@ const ErrCode40100 ErrCode = 40100
 //
 // 排查方法: -
 const ErrCode40102 ErrCode = 40102
+
+// ErrCode40106 device_access_token非法
+//
+// 排查方法: -
+const ErrCode40106 ErrCode = 40106
 
 // ErrCode40123 上传临时图片素材，图片格式非法
 //
@@ -596,6 +613,11 @@ const ErrCode40142 ErrCode = 40142
 // 排查方法: -
 const ErrCode40143 ErrCode = 40143
 
+// ErrCode40145 mediaid已过期失效
+//
+// 排查方法: -
+const ErrCode40145 ErrCode = 40145
+
 // ErrCode40165 已经升级了客户群ID，无法再次升级
 //
 // 排查方法: -
@@ -610,6 +632,11 @@ const ErrCode40166 ErrCode = 40166
 //
 // 排查方法: -
 const ErrCode40167 ErrCode = 40167
+
+// ErrCode40168 已经超过了指定的升级时间
+//
+// 排查方法: -
+const ErrCode40168 ErrCode = 40168
 
 // ErrCode40201 当前操作包含敏感信息，被反垃圾拦截
 //
@@ -717,6 +744,16 @@ const ErrCode41011 ErrCode = 41011
 // 排查方法: 发送图文消息，标题是必填参数。请确认参数是否有传递。
 const ErrCode41016 ErrCode = 41016
 
+// ErrCode41017 缺少tagid参数
+//
+// 排查方法: -
+const ErrCode41017 ErrCode = 41017
+
+// ErrCode41018 缺少标签名
+//
+// 排查方法: -
+const ErrCode41018 ErrCode = 41018
+
 // ErrCode41019 缺少 department 参数
 //
 // 排查方法: [查看帮助]
@@ -727,16 +764,6 @@ const ErrCode41016 ErrCode = 41016
 //
 // [查看帮助]: https://developer.work.weixin.qq.com/document/path/90313#%E9%94%99%E8%AF%AF%E7%A0%81%EF%BC%9A41019
 const ErrCode41019 ErrCode = 41019
-
-// ErrCode41017 缺少tagid参数
-//
-// 排查方法: -
-const ErrCode41017 ErrCode = 41017
-
-// ErrCode41018 缺少标签名
-//
-// 排查方法: -
-const ErrCode41018 ErrCode = 41018
 
 // ErrCode41021 缺少suite_id参数
 //
@@ -1101,6 +1128,11 @@ const ErrCode41099 ErrCode = 41099
 // 排查方法: -
 const ErrCode41102 ErrCode = 41102
 
+// ErrCode41200 仅部分经营类目企业支持
+//
+// 排查方法: -
+const ErrCode41200 ErrCode = 41200
+
 // ErrCode42001 access_token已过期
 //
 // 排查方法: access_token有时效性，需要重新获取一次
@@ -1110,6 +1142,11 @@ const ErrCode42001 ErrCode = 42001
 //
 // 排查方法: -
 const ErrCode42003 ErrCode = 42003
+
+// ErrCode42006 使用会话展示组件或通讯展示组件时登录态失效
+//
+// 排查方法: -
+const ErrCode42006 ErrCode = 42006
 
 // ErrCode42007 pre_auth_code已过期
 //
@@ -1445,6 +1482,24 @@ const ErrCode45033 ErrCode = 45033
 // 排查方法: 在url前面加上协议头 http:// 或 https://
 const ErrCode45034 ErrCode = 45034
 
+// ErrCode45035 并发操作冲突
+//
+// 排查方法: [查看帮助]
+//
+// 接口并发调用过程中出现数据操作冲突。企业微信出于保护数据正确性的考虑，在某些场景会下，会禁止接口同时修改同一条记录，例如调用“编辑客户企业标签”接口同时对一组客户和成员打标签，或是调用“分配离职成员的客户”接口同时为某个成员分配客户。
+//
+// [查看帮助]: https://developer.work.weixin.qq.com/document/path/90313#%E9%94%99%E8%AF%AF%E7%A0%81%EF%BC%9A45035
+const ErrCode45035 ErrCode = 45035
+
+// ErrCode45036 数据访问超过限制
+//
+// 排查方法: [查看帮助]
+//
+// 数据访问超过限制。在接口调用过程中，因出现异常流量，企业微信出于系统保护的考虑，会对出现异常流量的数据进行访问限制。当出现此错误时，企业/服务商可以尝试调整参数、适当降低调用频率、并发等措施并进行重试；如果调用接口的频次，并发都在合理范围内，则需要排查当前企业下是否存在使用非官方的企业微信客户端的情况。
+//
+// [查看帮助]: https://developer.work.weixin.qq.com/document/path/90313#%E9%94%99%E8%AF%AF%E7%A0%81%EF%BC%9A45036
+const ErrCode45036 ErrCode = 45036
+
 // ErrCode46003 菜单未设置
 //
 // 排查方法: 菜单需发布后才能获取到数据
@@ -1536,6 +1591,13 @@ const ErrCode48008 ErrCode = 48008
 //
 // [通讯录同步接口调整]: https://developer.work.weixin.qq.com/document/path/90313#40802
 const ErrCode48009 ErrCode = 48009
+
+// ErrCode48010 使用了不支持的TLS版本
+//
+// 排查方法: [查看帮助]
+//
+// [查看帮助]: https://developer.work.weixin.qq.com/document/path/90313#55963
+const ErrCode48010 ErrCode = 48010
 
 // ErrCode49004 签名不匹配
 //
@@ -1844,6 +1906,21 @@ const ErrCode60148 ErrCode = 60148
 // 排查方法: -
 const ErrCode60149 ErrCode = 60149
 
+// ErrCode60150 扩展属性类型不正确
+//
+// 排查方法: -
+const ErrCode60150 ErrCode = 60150
+
+// ErrCode60151 description字段长度超过限制
+//
+// 排查方法: -
+const ErrCode60151 ErrCode = 60151
+
+// ErrCode60152 拓展属性description字段非法
+//
+// 排查方法: -
+const ErrCode60152 ErrCode = 60152
+
 // ErrCode60203 不合法的模版ID
 //
 // 排查方法: -
@@ -2039,6 +2116,36 @@ const ErrCode60244 ErrCode = 60244
 // 排查方法: 检查第三方应用上线状态
 const ErrCode60246 ErrCode = 60246
 
+// ErrCode60251 缺少openkfid
+//
+// 排查方法: -
+const ErrCode60251 ErrCode = 60251
+
+// ErrCode60252 非法的openkfid
+//
+// 排查方法: 检查openkfid是否拼写正确
+const ErrCode60252 ErrCode = 60252
+
+// ErrCode60253 客服不在接待人员列表中
+//
+// 排查方法: 检查传入的客服id是否在接待人员列表中
+const ErrCode60253 ErrCode = 60253
+
+// ErrCode60257 设置直属上级数量超过最大数量限制（5个）
+//
+// 排查方法: -
+const ErrCode60257 ErrCode = 60257
+
+// ErrCode60267 时间参数不合法
+//
+// 排查方法: 开始时间不能早于180天前；结束时间需要大于开始时间，并且时间跨度不能超过7天
+const ErrCode60267 ErrCode = 60267
+
+// ErrCode60268 cursor参数不合法
+//
+// 排查方法: 检查是否使用上次调用本接口时返回的cursor，并且没有改动过滤条件
+const ErrCode60268 ErrCode = 60268
+
 // ErrCode65000 学校已经迁移
 //
 // 排查方法: -
@@ -2139,261 +2246,150 @@ const ErrCode65023 ErrCode = 65023
 // 排查方法: 检查学生的班主任、任课教师或家长所在班级群群主是否在应用可见范围内
 const ErrCode65024 ErrCode = 65024
 
-// ErrCode400237 location的长度超过最大限制
+// ErrCode71044 设备已绑定，删除失败
+//
+// 排查方法: 设备绑定情况下，无法取消登记
+const ErrCode71044 ErrCode = 71044
+
+// ErrCode71045 operid非法
 //
 // 排查方法: -
-const ErrCode400237 ErrCode = 400237
+const ErrCode71045 ErrCode = 71045
 
-// ErrCode660001 无效的商户号
-//
-// 排查方法: 请检查商户号是否正确
-const ErrCode660001 ErrCode = 660001
-
-// ErrCode660002 无效的企业收款人id
-//
-// 排查方法: 请检查payee_userid是否正确
-const ErrCode660002 ErrCode = 660002
-
-// ErrCode660003 userid不在应用的可见范围
+// ErrCode71046 无设备数据权限
 //
 // 排查方法: -
-const ErrCode660003 ErrCode = 660003
+const ErrCode71046 ErrCode = 71046
 
-// ErrCode660004 partyid不在应用的可见范围
+// ErrCode71047 openuserid参数非法
 //
 // 排查方法: -
-const ErrCode660004 ErrCode = 660004
+const ErrCode71047 ErrCode = 71047
 
-// ErrCode660005 tagid不在应用的可见范围
+// ErrCode71048 应用无授权设备
 //
 // 排查方法: -
-const ErrCode660005 ErrCode = 660005
+const ErrCode71048 ErrCode = 71048
 
-// ErrCode660006 找不到该商户号
+// ErrCode71049 考勤规则达到通过APP设置的上限
 //
 // 排查方法: -
-const ErrCode660006 ErrCode = 660006
+const ErrCode71049 ErrCode = 71049
 
-// ErrCode660007 申请已经存在
-//
-// 排查方法: 不需要重复申请
-const ErrCode660007 ErrCode = 660007
-
-// ErrCode660008 商户号已经绑定
-//
-// 排查方法: 不需要重新提交申请
-const ErrCode660008 ErrCode = 660008
-
-// ErrCode660009 商户号主体和商户主体不一致
+// ErrCode71050 门禁规则名称非法
 //
 // 排查方法: -
-const ErrCode660009 ErrCode = 660009
+const ErrCode71050 ErrCode = 71050
 
-// ErrCode660010 超过商户号绑定数量限制
+// ErrCode71051 门禁规则非法
 //
 // 排查方法: -
-const ErrCode660010 ErrCode = 660010
+const ErrCode71051 ErrCode = 71051
 
-// ErrCode660011 商户号未绑定
+// ErrCode71052 获取测温数据错误
 //
 // 排查方法: -
-const ErrCode660011 ErrCode = 660011
+const ErrCode71052 ErrCode = 71052
 
-// ErrCode660012 无效的paymentid
+// ErrCode71056 userid不在设备可见范围内
 //
 // 排查方法: -
-const ErrCode660012 ErrCode = 660012
+const ErrCode71056 ErrCode = 71056
 
-// ErrCode660013 对外收款系统应用被关闭了
+// ErrCode71057 门禁规则id非法
 //
 // 排查方法: -
-const ErrCode660013 ErrCode = 660013
+const ErrCode71057 ErrCode = 71057
 
-// ErrCode660014 接口已废弃
-//
-// 排查方法: 请前往企业微信管理后台-应用管理-对外收款中创建/删除商户号
-const ErrCode660014 ErrCode = 660014
-
-// ErrCode670001 应用不在共享范围
-//
-// 排查方法: [查看帮助]
-//
-// 上游企业获取下游企业的access_token时，请确认：
-// 1) 传入的access_token是否上游应用。
-// 2) 传入的corpid与agentid是否是通过获取共享范围接口获取。
-//
-// [查看帮助]: https://developer.work.weixin.qq.com/document/path/90313#%E9%94%99%E8%AF%AF%E7%A0%81%EF%BC%9A670001
-const ErrCode670001 ErrCode = 670001
-
-// ErrCode670002 无效上下游chain_id
+// ErrCode71058 userid不在应用可见范围内
 //
 // 排查方法: -
-const ErrCode670002 ErrCode = 670002
+const ErrCode71058 ErrCode = 71058
 
-// ErrCode670003 无效上下游分组id
+// ErrCode71059 门禁规则的配置范围超过授权应用可见范围，不可删除和修改
 //
 // 排查方法: -
-const ErrCode670003 ErrCode = 670003
+const ErrCode71059 ErrCode = 71059
 
-// ErrCode670004 企业不在上下游范围内
+// ErrCode71060 门禁规则的配置范围超过授权应用可见范围，不可删除和修改
 //
 // 排查方法: -
-const ErrCode670004 ErrCode = 670004
+const ErrCode71060 ErrCode = 71060
 
-// ErrCode670005 超过上下游人企业数上限
+// ErrCode71062 文件名称非法
 //
 // 排查方法: -
-const ErrCode670005 ErrCode = 670005
+const ErrCode71062 ErrCode = 71062
 
-// ErrCode670006 无效上下游规则id
+// ErrCode71063 同时缺少media_id和download_url参数
 //
 // 排查方法: -
-const ErrCode670006 ErrCode = 670006
+const ErrCode71063 ErrCode = 71063
 
-// ErrCode670007 上下游规则id数量超出限制
+// ErrCode71064 download_url非法或者从download_url下载文件失败
 //
 // 排查方法: -
-const ErrCode670007 ErrCode = 670007
+const ErrCode71064 ErrCode = 71064
 
-// ErrCode670008 分组不唯一
+// ErrCode71065 硬件不支持打印功能禁止调用
 //
 // 排查方法: -
-const ErrCode670008 ErrCode = 670008
+const ErrCode71065 ErrCode = 71065
 
-// ErrCode670009 自定义id不唯一
+// ErrCode71066 硬件不支持扫描功能禁止调用
 //
 // 排查方法: -
-const ErrCode670009 ErrCode = 670009
+const ErrCode71066 ErrCode = 71066
 
-// ErrCode670010 负责人数量超出限制
+// ErrCode71067 打印文件转码配置版本不合法
 //
 // 排查方法: -
-const ErrCode670010 ErrCode = 670010
+const ErrCode71067 ErrCode = 71067
 
-// ErrCode670011 不合法的自定义id。上下游企业自定义id只支持64个字符以内的字母和数字
+// ErrCode71068 打印文件转码配置版本过期
 //
 // 排查方法: -
-const ErrCode670011 ErrCode = 670011
+const ErrCode71068 ErrCode = 71068
 
-// ErrCode670012 导入企业名称为空
+// ErrCode71069 打印文件转码页码不合法
 //
 // 排查方法: -
-const ErrCode670012 ErrCode = 670012
+const ErrCode71069 ErrCode = 71069
 
-// ErrCode670013 不合法的企业名称。企业名只支持30个字符以内的中/英文、数字、合法字符
+// ErrCode71070 userid 不在设备使用范围内
 //
 // 排查方法: -
-const ErrCode670013 ErrCode = 670013
+const ErrCode71070 ErrCode = 71070
 
-// ErrCode670014 上下游联系人姓名为空
+// ErrCode71071 时间戳不合法
 //
 // 排查方法: -
-const ErrCode670014 ErrCode = 670014
+const ErrCode71071 ErrCode = 71071
 
-// ErrCode670015 不合法的上下游联系人姓名
+// ErrCode71072 设备型号未发布，禁止调用此接口
+//
+// 排查方法: 发布该型号后重试
+const ErrCode71072 ErrCode = 71072
+
+// ErrCode71075 扫描上传文件授权码不合法
 //
 // 排查方法: -
-const ErrCode670015 ErrCode = 670015
+const ErrCode71075 ErrCode = 71075
 
-// ErrCode670016 不合法的身份字段。身份字段只支持填写负责人或成员
+// ErrCode71076 禁止修改或者删除默认不可通行规则
 //
 // 排查方法: -
-const ErrCode670016 ErrCode = 670016
+const ErrCode71076 ErrCode = 71076
 
-// ErrCode670017 分组名和同层级企业名重复
+// ErrCode71077 非法的bio_info_type
 //
 // 排查方法: -
-const ErrCode670017 ErrCode = 670017
+const ErrCode71077 ErrCode = 71077
 
-// ErrCode670018 该联系人账号异常，无法邀请其加入上下游
+// ErrCode71078 硬件型号不支持该bio_info_type
 //
 // 排查方法: -
-const ErrCode670018 ErrCode = 670018
-
-// ErrCode670019 导入上下游后单个企业人数超出限制
-//
-// 排查方法: -
-const ErrCode670019 ErrCode = 670019
-
-// ErrCode670020 分组层级不可超过9层
-//
-// 排查方法: -
-const ErrCode670020 ErrCode = 670020
-
-// ErrCode670021 不合法的分组名称
-//
-// 排查方法: -
-const ErrCode670021 ErrCode = 670021
-
-// ErrCode670022 有导入任务正在进行
-//
-// 排查方法: -
-const ErrCode670022 ErrCode = 670022
-
-// ErrCode670023 超过每日导入人数限制
-//
-// 排查方法: -
-const ErrCode670023 ErrCode = 670023
-
-// ErrCode670024 账号异常，不能进行导入
-//
-// 排查方法: -
-const ErrCode670024 ErrCode = 670024
-
-// ErrCode670025 导入数据超出限制。检查导入数据单个企业人数、企业数以及总人数是否超出限制
-//
-// 排查方法: -
-const ErrCode670025 ErrCode = 670025
-
-// ErrCode670026 上下游空间加入企业超出限制
-//
-// 排查方法: -
-const ErrCode670026 ErrCode = 670026
-
-// ErrCode670027 不可以移除上下游创建者
-//
-// 排查方法: -
-const ErrCode670027 ErrCode = 670027
-
-// ErrCode670028 企业名称不唯一
-//
-// 排查方法: -
-const ErrCode670028 ErrCode = 670028
-
-// ErrCode670029 成员、部门不在上下游范围
-//
-// 排查方法: -
-const ErrCode670029 ErrCode = 670029
-
-// ErrCode670030 无权限操作此groupid。检查groupid是否在应用共享范围内
-//
-// 排查方法: -
-const ErrCode670030 ErrCode = 670030
-
-// ErrCode670031 根据管理员设置，存在联系人无权加入其他企业创建的上下游
-//
-// 排查方法: -
-const ErrCode670031 ErrCode = 670031
-
-// ErrCode670032 成员自定义id不合法
-//
-// 排查方法: -
-const ErrCode670032 ErrCode = 670032
-
-// ErrCode670033 当前成员填写了多个自定义id
-//
-// 排查方法: -
-const ErrCode670033 ErrCode = 670033
-
-// ErrCode670034 成员自定义id跟当前下游企业其他成员重复
-//
-// 排查方法: -
-const ErrCode670034 ErrCode = 670034
-
-// ErrCode670035 成员没有设置自定义id
-//
-// 排查方法: -
-const ErrCode670035 ErrCode = 670035
+const ErrCode71078 ErrCode = 71078
 
 // ErrCode72023 发票已被其他公众号锁定
 //
@@ -2417,11 +2413,6 @@ const ErrCode72024 ErrCode = 72024
 //
 // [批量更新发票状态]: https://developer.work.weixin.qq.com/document/path/90313#11634
 const ErrCode72037 ErrCode = 72037
-
-// ErrCode701112 民生行业优惠政策已到期
-//
-// 排查方法: -
-const ErrCode701112 ErrCode = 701112
 
 // ErrCode80001 可信域名不正确，或者无ICP备案
 //
@@ -2560,12 +2551,12 @@ const ErrCode82004 ErrCode = 82004
 
 // ErrCode82101 指定的更新对象为空
 //
-// 排查方法:
+// 排查方法: -
 const ErrCode82101 ErrCode = 82101
 
 // ErrCode82102 指定的更新对象不在多人消息内
 //
-// 排查方法:
+// 排查方法: -
 const ErrCode82102 ErrCode = 82102
 
 // ErrCode84005 第三方应用不存在
@@ -3214,6 +3205,11 @@ const ErrCode84178 ErrCode = 84178
 // 排查方法: -
 const ErrCode84180 ErrCode = 84180
 
+// ErrCode84182 已购买的版本才允许续期或扩容
+//
+// 排查方法: -
+const ErrCode84182 ErrCode = 84182
+
 // ErrCode84186 当前版本的剩余时长超过一年，不支持新购
 //
 // 排查方法: -
@@ -3223,6 +3219,16 @@ const ErrCode84186 ErrCode = 84186
 //
 // 排查方法: -
 const ErrCode84188 ErrCode = 84188
+
+// ErrCode84189 (正在生效)的应用设置新购的时候不支持设置开始时间
+//
+// 排查方法: -
+const ErrCode84189 ErrCode = 84189
+
+// ErrCode84195 提交的续期任务中有重复的userid
+//
+// 排查方法: -
+const ErrCode84195 ErrCode = 84195
 
 // ErrCode84200 文件转译解析错误
 //
@@ -3277,7 +3283,7 @@ const ErrCode85010 ErrCode = 85010
 
 // ErrCode85011 校验回调地址失败
 //
-// 排查方法:
+// 排查方法: -
 const ErrCode85011 ErrCode = 85011
 
 // ErrCode85012 存在不合法的权限名称
@@ -3413,6 +3419,21 @@ const ErrCode86222 ErrCode = 86222
 //
 // 排查方法: -
 const ErrCode86224 ErrCode = 86224
+
+// ErrCode86225 不允许删除课程群群主
+//
+// 排查方法: 课程群删除群主的时候必须指定新群主
+const ErrCode86225 ErrCode = 86225
+
+// ErrCode86226 指定的课程群群主没有课程群创建权限
+//
+// 排查方法: -
+const ErrCode86226 ErrCode = 86226
+
+// ErrCode86227 调用课程群API接口的企业不是高等教育行业
+//
+// 排查方法: -
+const ErrCode86227 ErrCode = 86227
 
 // ErrCode90001 未认证摇一摇周边
 //
@@ -4240,6 +4261,16 @@ const ErrCode90708 ErrCode = 90708
 // 排查方法: -
 const ErrCode90710 ErrCode = 90710
 
+// ErrCode90711 会议室已被停用，无法预定
+//
+// 排查方法: -
+const ErrCode90711 ErrCode = 90711
+
+// ErrCode90712 无法删除默认日历本
+//
+// 排查方法: -
+const ErrCode90712 ErrCode = 90712
+
 // ErrCode91040 获取ticket的类型无效
 //
 // 排查方法: [查看帮助]
@@ -4353,6 +4384,36 @@ const ErrCode94007 ErrCode = 94007
 //
 // 排查方法: -
 const ErrCode94008 ErrCode = 94008
+
+// ErrCode94010 缺少title字段
+//
+// 排查方法: -
+const ErrCode94010 ErrCode = 94010
+
+// ErrCode94011 webview高度类型不正确
+//
+// 排查方法: -
+const ErrCode94011 ErrCode = 94011
+
+// ErrCode94012 缺少data字段
+//
+// 排查方法: -
+const ErrCode94012 ErrCode = 94012
+
+// ErrCode94013 image配置的url字段不合法
+//
+// 排查方法: -
+const ErrCode94013 ErrCode = 94013
+
+// ErrCode94014 list配置的title字段不合法
+//
+// 排查方法: -
+const ErrCode94014 ErrCode = 94014
+
+// ErrCode94015 webview配置的url字段不合法
+//
+// 排查方法: -
+const ErrCode94015 ErrCode = 94015
 
 // ErrCode95000 不合法的open_kfid
 //
@@ -4488,6 +4549,11 @@ const ErrCode95031 ErrCode = 95031
 // 排查方法: 请联系官方对接人员沟通处理
 const ErrCode95032 ErrCode = 95032
 
+// ErrCode95033 msgid重复
+//
+// 排查方法: -
+const ErrCode95033 ErrCode = 95033
+
 // ErrCode301002 无权限操作指定的应用
 //
 // 排查方法: [查看帮助]
@@ -4505,6 +4571,11 @@ const ErrCode301002 ErrCode = 301002
 //
 // 排查方法: 创建者不允许从通讯录中删除。如果需要删除该成员，需要先在WEB管理端转移创建者身份。
 const ErrCode301005 ErrCode = 301005
+
+// ErrCode301007 企业不可用，可能已经被解散或者被禁封
+//
+// 排查方法: -
+const ErrCode301007 ErrCode = 301007
 
 // ErrCode301012 参数 position 不合法
 //
@@ -4609,6 +4680,21 @@ const ErrCode301042 ErrCode = 301042
 // 排查方法: -
 const ErrCode301048 ErrCode = 301048
 
+// ErrCode301049 调用接口的应用未在紧急通知应用中关联
+//
+// 排查方法: -
+const ErrCode301049 ErrCode = 301049
+
+// ErrCode301050 紧急通知应用未开启
+//
+// 排查方法: -
+const ErrCode301050 ErrCode = 301050
+
+// ErrCode301051 紧急通知应用余额不足
+//
+// 排查方法: -
+const ErrCode301051 ErrCode = 301051
+
 // ErrCode301052 会话存档服务已过期
 //
 // 排查方法: -
@@ -4623,8 +4709,23 @@ const ErrCode301053 ErrCode = 301053
 //
 // 排查方法: [查看帮助]
 //
+// 无审批应用权限/无审批应用数据拉取权限。常见的错误原因有：
+// 1) 应用没有审批权限，自建应用需要配置到审批应用的可调用应用列表里，第三方应用需要在应用详情内开启审批权限。
+// 2) 离职成员userid不支持作为过滤条件拉取表单记录，当传入离职成员的userid时也会提示无审批权限。
+// 3) 传入的参数异常，无法解析出传入的参数内容，例如无法解析出userid。
+//
 // [查看帮助]: https://developer.work.weixin.qq.com/document/path/90313#%E9%94%99%E8%AF%AF%E7%A0%81%EF%BC%9A301055
 const ErrCode301055 ErrCode = 301055
+
+// ErrCode301056 审批应用已停用
+//
+// 排查方法: -
+const ErrCode301056 ErrCode = 301056
+
+// ErrCode301057 通用错误码，提交审批单内部接口失败
+//
+// 排查方法: -
+const ErrCode301057 ErrCode = 301057
 
 // ErrCode301058 拉取会话数据请求超过大小限制，可减少limit参数
 //
@@ -4646,10 +4747,30 @@ const ErrCode301060 ErrCode = 301060
 // 排查方法: -
 const ErrCode301061 ErrCode = 301061
 
+// ErrCode301062 没有假勤权限
+//
+// 排查方法: -
+const ErrCode301062 ErrCode = 301062
+
+// ErrCode301063 参数错误
+//
+// 排查方法: -
+const ErrCode301063 ErrCode = 301063
+
+// ErrCode301064 内部错误
+//
+// 排查方法: -
+const ErrCode301064 ErrCode = 301064
+
 // ErrCode301073 设置排班的时间参数不合法
 //
 // 排查方法: openapi目前仅支持对未来日期设置排班
 const ErrCode301073 ErrCode = 301073
+
+// ErrCode301079 审批单假勤时间有冲突
+//
+// 排查方法: -
+const ErrCode301079 ErrCode = 301079
 
 // ErrCode301080 应打卡时间非法
 //
@@ -4775,35 +4896,30 @@ const ErrCode301104 ErrCode = 301104
 // 排查方法: -
 const ErrCode301105 ErrCode = 301105
 
-// ErrCode301056 审批应用已停用
+// ErrCode301111 会话存档SDK版本过低，请更新到最新版本的SDK
 //
 // 排查方法: -
-const ErrCode301056 ErrCode = 301056
+const ErrCode301111 ErrCode = 301111
 
-// ErrCode301057 通用错误码，提交审批单内部接口失败
+// ErrCode301112 请缩小查询时间范围重试
 //
 // 排查方法: -
-const ErrCode301057 ErrCode = 301057
+const ErrCode301112 ErrCode = 301112
 
-// ErrCode301079 审批单假勤时间有冲突
+// ErrCode301113 审批中的审批打卡不能补卡，补卡后原审批打卡的信息会清除
+//
+// 排查方法: 排查预期补卡的记录是否为审批中的审批打卡
+const ErrCode301113 ErrCode = 301113
+
+// ErrCode301115 模板已配置自定义打印格式，不支持API修改模板
 //
 // 排查方法: -
-const ErrCode301079 ErrCode = 301079
+const ErrCode301115 ErrCode = 301115
 
-// ErrCode301063 参数错误
+// ErrCode301116 第三方不可调用该企业会话内容存档SDK
 //
 // 排查方法: -
-const ErrCode301063 ErrCode = 301063
-
-// ErrCode301064 内部错误
-//
-// 排查方法: -
-const ErrCode301064 ErrCode = 301064
-
-// ErrCode301062 没有假勤权限
-//
-// 排查方法:
-const ErrCode301062 ErrCode = 301062
+const ErrCode301116 ErrCode = 301116
 
 // ErrCode302003 批量导入任务的文件中userid有重复
 //
@@ -4834,6 +4950,26 @@ const ErrCode302007 ErrCode = 302007
 //
 // 排查方法: -
 const ErrCode302008 ErrCode = 302008
+
+// ErrCode400010 block_hint非法
+//
+// 排查方法: -
+const ErrCode400010 ErrCode = 400010
+
+// ErrCode400011 block_hint对应的拦截已过期
+//
+// 排查方法: -
+const ErrCode400011 ErrCode = 400011
+
+// ErrCode400012 不允许通过该block_hint解除拦截
+//
+// 排查方法: -
+const ErrCode400012 ErrCode = 400012
+
+// ErrCode400013 解拦截次数超过限制
+//
+// 排查方法: -
+const ErrCode400013 ErrCode = 400013
 
 // ErrCode400020 会议参与人超过限制
 //
@@ -4950,35 +5086,80 @@ const ErrCode400044 ErrCode = 400044
 // 排查方法: -
 const ErrCode400045 ErrCode = 400045
 
-// ErrCode2000002 CorpId参数无效
-//
-// 排查方法: 指定的CorpId不存在
-const ErrCode2000002 ErrCode = 2000002
-
-// ErrCode2000003 不存在远程开门的数据
+// ErrCode400218 有参会成员未购买专业版账号
 //
 // 排查方法: -
-const ErrCode2000003 ErrCode = 2000003
+const ErrCode400218 ErrCode = 400218
 
-// ErrCode2000004 远程开门数据记录的设备与当前请求设备不匹配
+// ErrCode400219 会议发起人未购买专业版账号
 //
 // 排查方法: -
-const ErrCode2000004 ErrCode = 2000004
+const ErrCode400219 ErrCode = 400219
 
-// ErrCode2000007 远程开门上报开门状态错误
+// ErrCode400220 创建会议行为异常，被风控策略拦截
 //
 // 排查方法: -
-const ErrCode2000007 ErrCode = 2000007
+const ErrCode400220 ErrCode = 400220
 
-// ErrCode2000009 门禁扫码开门上报开门operid非法
+// ErrCode400221 正在进行中或者已经结束的会议不允许更新
 //
 // 排查方法: -
-const ErrCode2000009 ErrCode = 2000009
+const ErrCode400221 ErrCode = 400221
 
-// ErrCode2000010 门禁扫码开门上报开门状态错误
+// ErrCode400222 会议开始时间不允许小于当前时间
 //
 // 排查方法: -
-const ErrCode2000010 ErrCode = 2000010
+const ErrCode400222 ErrCode = 400222
+
+// ErrCode400223 开始时间或者结束时间不合法
+//
+// 排查方法: -
+const ErrCode400223 ErrCode = 400223
+
+// ErrCode400224 会中或者已经结束的会议不能取消
+//
+// 排查方法: -
+const ErrCode400224 ErrCode = 400224
+
+// ErrCode400226 企业购买「会议高级功能」后才可以使用该字段
+//
+// 排查方法: -
+const ErrCode400226 ErrCode = 400226
+
+// ErrCode400227 非法的重复类型
+//
+// 排查方法: -
+const ErrCode400227 ErrCode = 400227
+
+// ErrCode400228 重复次数不合法
+//
+// 排查方法: -
+const ErrCode400228 ErrCode = 400228
+
+// ErrCode400237 location的长度超过最大限制
+//
+// 排查方法: -
+const ErrCode400237 ErrCode = 400237
+
+// ErrCode400301 5分钟内有相同的会议正在创建中，暂不可再创建
+//
+// 排查方法: 若相同的会议未创建成功，可于相同会议首次创建时间5分钟后重新创建
+const ErrCode400301 ErrCode = 400301
+
+// ErrCode400302 相同的会议已经创建成功
+//
+// 排查方法: 若明确需要创建相同的会议，可在创建会议请求包中设置"skip_duplicate_check":true 跳过重复会议检查
+const ErrCode400302 ErrCode = 400302
+
+// ErrCode400303 用户没有权限创建会议
+//
+// 排查方法: 可以联系企业管理员在腾讯会议管理端为用户配置创建会议的权限
+const ErrCode400303 ErrCode = 400303
+
+// ErrCode511020 问题重复
+//
+// 排查方法: -
+const ErrCode511020 ErrCode = 511020
 
 // ErrCode600001 不合法的sn
 //
@@ -5338,6 +5519,48 @@ const ErrCode610021 ErrCode = 610021
 // 排查方法: -
 const ErrCode610022 ErrCode = 610022
 
+// ErrCode610023 企业外部联系人规模已达上限，当前已无法管理客户，在客户端上购买后即可继续管理。
+//
+// 排查方法: [去管理后台购买]
+//
+// [去管理后台购买]: https://work.weixin.qq.com/wework_admin/frame#/business/mall/index/productIntro/customerService
+const ErrCode610023 ErrCode = 610023
+
+// ErrCode630005 无效的launch_code
+//
+// 排查方法: -
+const ErrCode630005 ErrCode = 630005
+
+// ErrCode630010 不合法的sdk_func
+//
+// 排查方法: -
+const ErrCode630010 ErrCode = 630010
+
+// ErrCode630011 不合法的singlechat参数
+//
+// 排查方法: -
+const ErrCode630011 ErrCode = 630011
+
+// ErrCode630012 操作者身份不一致
+//
+// 排查方法: -
+const ErrCode630012 ErrCode = 630012
+
+// ErrCode630013 launch_code中应用身份跟调用sdk接口应用身份不一致
+//
+// 排查方法: -
+const ErrCode630013 ErrCode = 630013
+
+// ErrCode630014 launch_code中申请的sdk接口跟调用sdk接口不一致
+//
+// 排查方法: -
+const ErrCode630014 ErrCode = 630014
+
+// ErrCode630015 单聊对象已离职
+//
+// 排查方法: -
+const ErrCode630015 ErrCode = 630015
+
 // ErrCode640001 微盘不存在当前空间
 //
 // 排查方法: 判断spaceid是否填错
@@ -5493,6 +5716,13 @@ const ErrCode640032 ErrCode = 640032
 // 排查方法: 升级为付费账号，不受此限制
 const ErrCode640035 ErrCode = 640035
 
+// ErrCode640039 分块上传的size和block_sha不匹配
+//
+// 排查方法: 按[此指引]计算并填入正确的block_sha以及对应的size
+//
+// [此指引]: https://github.com/wecomopen/file_block_digest/tree/main/dem
+const ErrCode640039 ErrCode = 640039
+
 // ErrCode640044 空间已开启保密模式
 //
 // 排查方法: 检查空间相关设置
@@ -5552,6 +5782,467 @@ const ErrCode640056 ErrCode = 640056
 //
 // 排查方法: 清理空间下不再使用的文件
 const ErrCode640060 ErrCode = 640060
+
+// ErrCode640061 智能表api内容权限规则名称重复
+//
+// 排查方法: 这是说明传入的name参数有重复或者name=“全员权限”，这些都是不被允许的，请修改name参数
+const ErrCode640061 ErrCode = 640061
+
+// ErrCode640062 智能表api内容权限规则名称长度超限
+//
+// 排查方法: 这是说明传入的name参数长度超过限制，目前限制的name长度为20个字符
+const ErrCode640062 ErrCode = 640062
+
+// ErrCode640063 智能表api指定成员权限规则数量超限返回
+//
+// 排查方法: 这是成员权限规则超过限制，每个文档的额外成员权限规则数量限制为20个
+const ErrCode640063 ErrCode = 640063
+
+// ErrCode640065 智能表api额外指定成员权限不存在
+//
+// 排查方法: 传入的规则id不存在，请检查输入的ruleid是否合法
+const ErrCode640065 ErrCode = 640065
+
+// ErrCode640067 智能表api删除的成员不存在
+//
+// 排查方法: 删除的成员非法，该成员不在当前的权限成员列表
+const ErrCode640067 ErrCode = 640067
+
+// ErrCode640069 智能表api规则成员数目超限
+//
+// 排查方法: 智能表额外成员权限规则限制添加的成员人数不得大于500人
+const ErrCode640069 ErrCode = 640069
+
+// ErrCode640070 智能表api设置区域权限-全局行规则不能设置局部行规则
+//
+// 排查方法: rule_list.priv_list.record_priv.record_range_type=1标识全部记录，则不能再设置rule_list.priv_list.record_priv.record_rule_list和rule_list.priv_list.record_priv.record_rule_list.other_priv
+const ErrCode640070 ErrCode = 640070
+
+// ErrCode640071 智能表api设置区域权限-行规则数目非法
+//
+// 排查方法: rule_list.priv_list.record_priv.record_rule_list的长度为0或者超过限制20
+const ErrCode640071 ErrCode = 640071
+
+// ErrCode640072 智能表api设置区域权限-行规则缺少fieldid
+//
+// 排查方法: rule_list.priv_list.record_priv.record_rule_list的某一项缺少字段id，请检查rule_list.priv_list.record_priv.record_rule_list.field_id
+const ErrCode640072 ErrCode = 640072
+
+// ErrCode640073 智能表api设置区域权限-行规则操作类型无需有值
+//
+// 排查方法: rule_list.priv_list.record_priv.record_rule_list.oper_type的取值等于1-包含自己（人员字段）、6-为空、7-非空时候，rule_list.priv_list.record_priv.record_rule_list.value不能有值
+const ErrCode640073 ErrCode = 640073
+
+// ErrCode640074 智能表api设置区域权限-行规则操作类型必须有值
+//
+// 排查方法: rule_list.priv_list.record_priv.record_rule_list.oper_type的取值等于2-包含value；3-不包含value；4-等于value；5-不等于时候valuerule_list.priv_list.record_priv.record_rule_list.value必须有值
+const ErrCode640074 ErrCode = 640074
+
+// ErrCode640075 智能表api设置区域权限-行规则操作类型未定义
+//
+// 排查方法: 情况1
+// rule_list.priv_list.record_priv.record_rule_list.oper_type的取值不在[1-7]之间
+// 情况2
+// rule_list.priv_list.record_priv.record_rule_list.field_id = CREATED_USER 但是 rule_list.priv_list.record_priv.record_rule_list.oper_type不等于1-包含自己（人员字段）
+// 情况3
+// rule_list.priv_list.record_priv.record_rule_list.field_type为人员列FIELD_TYPE_USER 但是 rule_list.priv_list.record_priv.record_rule_list.oper_type不等于1-包含自己（人员字段）
+const ErrCode640075 ErrCode = 640075
+
+// ErrCode640076 智能表api设置区域权限-行规则其他权限非法
+//
+// 排查方法: 情况1
+// priv_list.record_priv.record_rule_list.other_priv的取值不在[1-2]之间
+// 情况2
+// priv_list.priv设置为3-仅浏览，但是priv_list.record_priv.record_rule_list.other_priv的取值不为2-不可查看
+const ErrCode640076 ErrCode = 640076
+
+// ErrCode640077 智能表api设置区域权限-行规则类型未定义
+//
+// 排查方法: priv_list.record_priv.record_range_type的取值不在[1-3]之间
+const ErrCode640077 ErrCode = 640077
+
+// ErrCode640078 智能表api设置区域权限-全局列规则不能设置局部列规则
+//
+// 排查方法: priv_list.field_priv.field_range_type = 1-所有字段，则不能再设置priv_list.field_priv.field_rule_list 和priv_list.field_priv.field_default_rule
+const ErrCode640078 ErrCode = 640078
+
+// ErrCode640079 智能表api设置区域权限-列规则缺少fieldid
+//
+// 排查方法: 设置字段规则时，field id为空
+const ErrCode640079 ErrCode = 640079
+
+// ErrCode640080 智能表api设置区域权限-列规则fieldid重复
+//
+// 排查方法: priv_list.field_priv.field_rule_list.field_id重复设置
+const ErrCode640080 ErrCode = 640080
+
+// ErrCode640081 智能表api设置区域权限-列规则非法
+//
+// 排查方法: 情况1:
+// priv_list.priv的设置级别和priv_list.field_priv.field_rule_list.can_edit
+// priv_list.field_priv.field_rule_list.can_insert
+// priv_list.field_priv.field_rule_list.can_view
+// 之间互相冲突，请校验这些地方是否符合正常逻辑，不要出现矛盾的设置，一般外层权限大于内层权限
+// 情况2:
+// 最小权限和列规则的三个can之间冲突
+// 最小权限指的是当priv_list.priv设置为2-可编辑；3-仅浏览时候，最小权限会根据priv_list.can_insert_record的设置为，最小权限为可插入记录，还是最小权限为仅浏览，请检查是否与列规则的三个can之间冲突
+const ErrCode640081 ErrCode = 640081
+
+// ErrCode640082 智能表api设置区域权限-列规则最小权限非法
+//
+// 排查方法: 这种情况是因为填充了行规则需要某个字段列，但是列规则里面没有设置这个列的权限，会导致判断字段权限时候缺失
+const ErrCode640082 ErrCode = 640082
+
+// ErrCode640083 智能表api设置区域权限-列规则默认权限非法
+//
+// 排查方法: 全员权限不能设置priv_list.field_priv.field_default_rule
+// 额外成员权限必须设置priv_list.field_priv.field_default_rule
+const ErrCode640083 ErrCode = 640083
+
+// ErrCode640084 智能表api设置区域权限-列规则can相关操作权限非法
+//
+// 排查方法: priv_list.field_priv.field_default_rule的can操作之间相冲突或者和外层的priv_list.priv设置级别冲突
+const ErrCode640084 ErrCode = 640084
+
+// ErrCode640085 智能表api设置区域权限-列规则类型未定义
+//
+// 排查方法: priv_list.record_priv.record_range_type的取值不在[1-3]之间
+const ErrCode640085 ErrCode = 640085
+
+// ErrCode640086 智能表api设置区域权限-子表id为空
+//
+// 排查方法: 检查priv_list.sheet_id是否为空
+const ErrCode640086 ErrCode = 640086
+
+// ErrCode640087 智能表api设置区域权限-子表id重复
+//
+// 排查方法: 检查priv_list.sheet_id是否重复
+const ErrCode640087 ErrCode = 640087
+
+// ErrCode640088 智能表api设置区域权限-子表priv非法
+//
+// 排查方法: 情况1
+// priv_list.priv设置为1-全部权限和4-无权限时，不能设置同级别的其他字段，包括field_priv和record_priv
+// 情况2
+// priv_list.priv设置为2-可编辑，必须有field_priv和record_priv以及can操作
+// 情况3
+// priv_list.priv设置为3-仅浏览，必须有field_priv和record_priv，但是不能有can操作
+const ErrCode640088 ErrCode = 640088
+
+// ErrCode640089 智能表api设置区域权限-子表priv.priv类型非法
+//
+// 排查方法: priv_list.priv的取值不在[1-4]之间
+const ErrCode640089 ErrCode = 640089
+
+// ErrCode640090 智能表api设置区域权限-成员类型非法
+//
+// 排查方法: 修改额外权限的成员列表时，输入的成员id类型不合法，请检查输入的成员类型是否匹配对应的入参列表
+const ErrCode640090 ErrCode = 640090
+
+// ErrCode640091 智能表api设置区域权限-成员重复
+//
+// 排查方法: 修改额外权限的成员列表时，输入的成员id重复
+const ErrCode640091 ErrCode = 640091
+
+// ErrCode640092 智能表api设置区域权限-成员非法
+//
+// 排查方法: 删除成员列表的成员id在当前权限的成员列表中不存在
+const ErrCode640092 ErrCode = 640092
+
+// ErrCode640093 智能表api设置列类型list为空
+//
+// 排查方法: 设置列权限为部分字段可编辑时，没有传入具体字段
+// priv_list.field_priv.field_range_type=2-部分字段时，没设置priv_list.field_priv.field_rule_list
+const ErrCode640093 ErrCode = 640093
+
+// ErrCode640094 智能表api全员权限不能设置名称
+//
+// 排查方法: 全员权限不能修改名称
+const ErrCode640094 ErrCode = 640094
+
+// ErrCode640095 智能表api创建者列类型非法
+//
+// 排查方法: 设置记录权限时，若priv_list.record_priv.record_rule_list.field_id=CREATED_USER
+// 则不能设置
+// priv_list.record_priv.record_rule_list.field_type字段
+const ErrCode640095 ErrCode = 640095
+
+// ErrCode640096 智能表api列类型非法
+//
+// 排查方法: 设置记录权限时，缺失
+// priv_list.record_priv.record_rule_list.field_type字段
+// 或者是列类型不在["FIELD_TYPE_USER", "FIELD_TYPE_SELECT", "FIELD_TYPE_SINGLE_SELECT", "FIELD_TYPE_LOOKUP"]之间
+// 设置字段权限时，缺失
+// priv_list.field_priv.field_rule_list.field_type字段
+const ErrCode640096 ErrCode = 640096
+
+// ErrCode640097 智能表api表格id非法
+//
+// 排查方法: 输入的rule_list.priv_list.sheet_id子表id不存在，请校验子表id
+const ErrCode640097 ErrCode = 640097
+
+// ErrCode640098 智能表api表格日期数字文件列设置错误
+//
+// 排查方法: 日期、数字和文件列这3个规则联动，不存在只勾可编辑+可查看
+const ErrCode640098 ErrCode = 640098
+
+// ErrCode640100 智能表api表格引用列设置错误
+//
+// 排查方法: 引用、公式不可编辑，可以不可查看
+const ErrCode640100 ErrCode = 640100
+
+// ErrCode640101 智能表api表格系统属性列设置错误
+//
+// 排查方法: 系统字段不可编辑，最小可查看
+// 系统字段指的是创建人、修改人、创建时间和修改时间这四个字段
+const ErrCode640101 ErrCode = 640101
+
+// ErrCode660001 无效的商户号
+//
+// 排查方法: 请检查商户号是否正确
+const ErrCode660001 ErrCode = 660001
+
+// ErrCode660002 无效的企业收款人id
+//
+// 排查方法: 请检查payee_userid是否正确
+const ErrCode660002 ErrCode = 660002
+
+// ErrCode660003 userid不在应用的可见范围
+//
+// 排查方法: -
+const ErrCode660003 ErrCode = 660003
+
+// ErrCode660004 partyid不在应用的可见范围
+//
+// 排查方法: -
+const ErrCode660004 ErrCode = 660004
+
+// ErrCode660005 tagid不在应用的可见范围
+//
+// 排查方法: -
+const ErrCode660005 ErrCode = 660005
+
+// ErrCode660006 找不到该商户号
+//
+// 排查方法: -
+const ErrCode660006 ErrCode = 660006
+
+// ErrCode660007 申请已经存在
+//
+// 排查方法: 不需要重复申请
+const ErrCode660007 ErrCode = 660007
+
+// ErrCode660008 商户号已经绑定
+//
+// 排查方法: 不需要重新提交申请
+const ErrCode660008 ErrCode = 660008
+
+// ErrCode660009 商户号主体和商户主体不一致
+//
+// 排查方法: -
+const ErrCode660009 ErrCode = 660009
+
+// ErrCode660010 超过商户号绑定数量限制
+//
+// 排查方法: -
+const ErrCode660010 ErrCode = 660010
+
+// ErrCode660011 商户号未绑定
+//
+// 排查方法: -
+const ErrCode660011 ErrCode = 660011
+
+// ErrCode660012 无效的paymentid
+//
+// 排查方法: -
+const ErrCode660012 ErrCode = 660012
+
+// ErrCode660013 对外收款系统应用被关闭了
+//
+// 排查方法: -
+const ErrCode660013 ErrCode = 660013
+
+// ErrCode660014 接口已废弃
+//
+// 排查方法: 请前往企业微信管理后台-应用管理-对外收款中创建/删除商户号
+const ErrCode660014 ErrCode = 660014
+
+// ErrCode670001 应用不在共享范围
+//
+// 排查方法: [查看帮助]
+//
+// [查看帮助]: https://developer.work.weixin.qq.com/document/path/90313#%E9%94%99%E8%AF%AF%E7%A0%81%EF%BC%9A670001
+const ErrCode670001 ErrCode = 670001
+
+// ErrCode670002 无效上下游chain_id
+//
+// 排查方法: -
+const ErrCode670002 ErrCode = 670002
+
+// ErrCode670003 无效上下游分组id
+//
+// 排查方法: -
+const ErrCode670003 ErrCode = 670003
+
+// ErrCode670004 企业不在上下游范围内
+//
+// 排查方法: -
+const ErrCode670004 ErrCode = 670004
+
+// ErrCode670005 超过上下游人企业数上限
+//
+// 排查方法: -
+const ErrCode670005 ErrCode = 670005
+
+// ErrCode670006 无效上下游规则id
+//
+// 排查方法: -
+const ErrCode670006 ErrCode = 670006
+
+// ErrCode670007 上下游规则id数量超出限制
+//
+// 排查方法: -
+const ErrCode670007 ErrCode = 670007
+
+// ErrCode670008 分组不唯一
+//
+// 排查方法: -
+const ErrCode670008 ErrCode = 670008
+
+// ErrCode670009 自定义id不唯一
+//
+// 排查方法: -
+const ErrCode670009 ErrCode = 670009
+
+// ErrCode670010 负责人数量超出限制
+//
+// 排查方法: -
+const ErrCode670010 ErrCode = 670010
+
+// ErrCode670011 不合法的自定义id。上下游企业自定义id只支持64个字符以内的字母和数字
+//
+// 排查方法: -
+const ErrCode670011 ErrCode = 670011
+
+// ErrCode670012 导入企业名称为空
+//
+// 排查方法: -
+const ErrCode670012 ErrCode = 670012
+
+// ErrCode670013 不合法的企业名称。企业名只支持30个字符以内的中/英文、数字、合法字符
+//
+// 排查方法: -
+const ErrCode670013 ErrCode = 670013
+
+// ErrCode670014 上下游联系人姓名为空
+//
+// 排查方法: -
+const ErrCode670014 ErrCode = 670014
+
+// ErrCode670015 不合法的上下游联系人姓名
+//
+// 排查方法: -
+const ErrCode670015 ErrCode = 670015
+
+// ErrCode670016 不合法的身份字段。身份字段只支持填写负责人或成员
+//
+// 排查方法: -
+const ErrCode670016 ErrCode = 670016
+
+// ErrCode670017 分组名和同层级企业名重复
+//
+// 排查方法: -
+const ErrCode670017 ErrCode = 670017
+
+// ErrCode670018 该联系人账号异常，无法邀请其加入上下游
+//
+// 排查方法: -
+const ErrCode670018 ErrCode = 670018
+
+// ErrCode670019 导入上下游后单个企业人数超出限制
+//
+// 排查方法: -
+const ErrCode670019 ErrCode = 670019
+
+// ErrCode670020 分组层级不可超过9层
+//
+// 排查方法: -
+const ErrCode670020 ErrCode = 670020
+
+// ErrCode670021 不合法的分组名称
+//
+// 排查方法: -
+const ErrCode670021 ErrCode = 670021
+
+// ErrCode670022 有导入任务正在进行
+//
+// 排查方法: -
+const ErrCode670022 ErrCode = 670022
+
+// ErrCode670023 超过每日导入人数限制
+//
+// 排查方法: -
+const ErrCode670023 ErrCode = 670023
+
+// ErrCode670024 账号异常，不能进行导入
+//
+// 排查方法: -
+const ErrCode670024 ErrCode = 670024
+
+// ErrCode670025 导入数据超出限制。检查导入数据单个企业人数、企业数以及总人数是否超出限制
+//
+// 排查方法: -
+const ErrCode670025 ErrCode = 670025
+
+// ErrCode670026 上下游空间加入企业超出限制
+//
+// 排查方法: -
+const ErrCode670026 ErrCode = 670026
+
+// ErrCode670027 不可以移除上下游创建者
+//
+// 排查方法: -
+const ErrCode670027 ErrCode = 670027
+
+// ErrCode670028 企业名称不唯一
+//
+// 排查方法: -
+const ErrCode670028 ErrCode = 670028
+
+// ErrCode670029 成员、部门不在上下游范围
+//
+// 排查方法: -
+const ErrCode670029 ErrCode = 670029
+
+// ErrCode670030 无权限操作此groupid。检查groupid是否在应用共享范围内
+//
+// 排查方法: -
+const ErrCode670030 ErrCode = 670030
+
+// ErrCode670031 根据管理员设置，存在联系人无权加入其他企业创建的上下游
+//
+// 排查方法: -
+const ErrCode670031 ErrCode = 670031
+
+// ErrCode670032 成员自定义id不合法
+//
+// 排查方法: -
+const ErrCode670032 ErrCode = 670032
+
+// ErrCode670033 当前成员填写了多个自定义id
+//
+// 排查方法: -
+const ErrCode670033 ErrCode = 670033
+
+// ErrCode670034 成员自定义id跟当前下游企业其他成员重复
+//
+// 排查方法: -
+const ErrCode670034 ErrCode = 670034
+
+// ErrCode670035 成员没有设置自定义id
+//
+// 排查方法: -
+const ErrCode670035 ErrCode = 670035
 
 // ErrCode680000 参数错误
 //
@@ -5683,195 +6374,15 @@ const ErrCode680046 ErrCode = 680046
 // 排查方法: -
 const ErrCode680106 ErrCode = 680106
 
-// ErrCode740000 安全网关gateway_info的<host,port>冲突
-//
-// 排查方法: 企业内<host,port>唯一
-const ErrCode740000 ErrCode = 740000
-
-// ErrCode740001 安全网关target_info的path冲突
-//
-// 排查方法: 企业内path唯一
-const ErrCode740001 ErrCode = 740001
-
-// ErrCode740002 安全网关数量超过上限
-//
-// 排查方法: 企业内最多10个
-const ErrCode740002 ErrCode = 740002
-
-// ErrCode740003 单个安全网关内的path数量超过限制
-//
-// 排查方法: 单个网关内最多100个
-const ErrCode740003 ErrCode = 740003
-
-// ErrCode740004 安全网关不存在
-//
-// 排查方法: 可能已被删除
-const ErrCode740004 ErrCode = 740004
-
-// ErrCode740005 安全网关gateway_info的host非域名
-//
-// 排查方法: 目前要求必须是域名，不能配置ip
-const ErrCode740005 ErrCode = 740005
-
-// ErrCode740006 安全网关gateway_info的host验证失败
-//
-// 排查方法: 要求域名ICP备案跟企业主体一致
-const ErrCode740006 ErrCode = 740006
-
-// ErrCode770001 高级功能额度不足
+// ErrCode680151 客户端专用密码id不正确
 //
 // 排查方法: -
-const ErrCode770001 ErrCode = 770001
+const ErrCode680151 ErrCode = 680151
 
-// ErrCode770003 高级功能全企业购买模式不允许分配和撤销高级功能账户
+// ErrCode680153 客户端专用密码个数超过上限
 //
 // 排查方法: -
-const ErrCode770003 ErrCode = 770003
-
-// ErrCode770004 不存在合法的用户列表
-//
-// 排查方法: -
-const ErrCode770004 ErrCode = 770004
-
-// ErrCode770005 未开通业务高级功能
-//
-// 排查方法: -
-const ErrCode770005 ErrCode = 770005
-
-// ErrCode770006 不合法的jobid
-//
-// 排查方法: -
-const ErrCode770006 ErrCode = 770006
-
-// ErrCode770007 任务正在处理中
-//
-// 排查方法: -
-const ErrCode770007 ErrCode = 770007
-
-// ErrCode770008 存在用户账户分配高级功能超过7天，不允许撤销
-//
-// 排查方法: -
-const ErrCode770008 ErrCode = 770008
-
-// ErrCode770009 请求中所有合法用户账户均是高级功能账户
-//
-// 排查方法: -
-const ErrCode770009 ErrCode = 770009
-
-// ErrCode770010 已在腾讯会议侧购买高级功能，不允许通过此接口操作
-//
-// 排查方法: -
-const ErrCode770010 ErrCode = 770010
-
-// ErrCode842002 代开发应用模版未上线
-//
-// 排查方法: -
-const ErrCode842002 ErrCode = 842002
-
-// ErrCode842003 不是代开发应用模版
-//
-// 排查方法: -
-const ErrCode842003 ErrCode = 842003
-
-// ErrCode842004 代开发应用模版数量不合法
-//
-// 排查方法: -
-const ErrCode842004 ErrCode = 842004
-
-// ErrCode842005 不支持的应用类型
-//
-// 排查方法: 检查应用类型是否与文档说明一致
-const ErrCode842005 ErrCode = 842005
-
-// ErrCode842006 已存在代开发应用授权
-//
-// 排查方法:
-const ErrCode842006 ErrCode = 842006
-
-// ErrCode844001 非法的output_file_format
-//
-// 排查方法: 判断输出文件格式是否正确
-const ErrCode844001 ErrCode = 844001
-
-// ErrCode844002 最近安装应用时间已超过7天，不再允许拨打公费电话联系管理员
-//
-// 排查方法: 请检查最近一次安装应用时间是否超过7天
-const ErrCode844002 ErrCode = 844002
-
-// ErrCode845001 openid账号类型不是公众号或小程序
-//
-// 排查方法: -
-const ErrCode845001 ErrCode = 845001
-
-// ErrCode845002 openid认证主体和企业认证主体不一致
-//
-// 排查方法: 请确保小程序或公众号已经认证，且认证的主体名称与企业的主体名称一致
-const ErrCode845002 ErrCode = 845002
-
-// ErrCode845003 unionid认证主体和企业认证主体不一致
-//
-// 排查方法: 请确保开放平台账号已经认证，且认证的主体名称与企业的主体名称一致
-const ErrCode845003 ErrCode = 845003
-
-// ErrCode846000 不是代开发或者第三方应用
-//
-// 排查方法:
-const ErrCode846000 ErrCode = 846000
-
-// ErrCode710000 非法的open_corpid
-//
-// 排查方法: -
-const ErrCode710000 ErrCode = 710000
-
-// ErrCode710002 非法的open_pending_corpid
-//
-// 排查方法: -
-const ErrCode710002 ErrCode = 710002
-
-// ErrCode710003 非法的formid
-//
-// 排查方法: -
-const ErrCode710003 ErrCode = 710003
-
-// ErrCode710004 非法的mailid
-//
-// 排查方法: -
-const ErrCode710004 ErrCode = 710004
-
-// ErrCode710006 非法的tmp_external_userid
-//
-// 排查方法: -
-const ErrCode710006 ErrCode = 710006
-
-// ErrCode710007 非法的gateway_id
-//
-// 排查方法: -
-const ErrCode710007 ErrCode = 710007
-
-// ErrCode60252 非法的openkfid
-//
-// 排查方法: 检查openkfid是否拼写正确
-const ErrCode60252 ErrCode = 60252
-
-// ErrCode60251 缺少openkfid
-//
-// 排查方法: -
-const ErrCode60251 ErrCode = 60251
-
-// ErrCode60253 客服不在接待人员列表中
-//
-// 排查方法: 检查传入的客服id是否在接待人员列表中
-const ErrCode60253 ErrCode = 60253
-
-// ErrCode60257 设置直属上级数量超过最大数量限制（5个）
-//
-// 排查方法: -
-const ErrCode60257 ErrCode = 60257
-
-// ErrCode301007 企业不可用，可能已经被解散或者被禁封
-//
-// 排查方法: -
-const ErrCode301007 ErrCode = 301007
+const ErrCode680153 ErrCode = 680153
 
 // ErrCode701001 不是license基础账号
 //
@@ -5961,7 +6472,7 @@ const ErrCode701016 ErrCode = 701016
 // 排查方法: -
 const ErrCode701017 ErrCode = 701017
 
-// ErrCode701018 迁移账号重叠，接收账号已有相同类型的账号
+// ErrCode701018 接收账号已有相同类型的账号且剩余有效时长超过20天
 //
 // 排查方法: -
 const ErrCode701018 ErrCode = 701018
@@ -6106,6 +6617,11 @@ const ErrCode701057 ErrCode = 701057
 // 排查方法: -
 const ErrCode701058 ErrCode = 701058
 
+// ErrCode701063 企业接口许可状态已关闭
+//
+// 排查方法: -
+const ErrCode701063 ErrCode = 701063
+
 // ErrCode701070 无效的自动激活状态
 //
 // 排查方法: -
@@ -6172,6 +6688,56 @@ const ErrCode701090 ErrCode = 701090
 //
 // [接口许可失效的表现]: https://developer.work.weixin.qq.com/document/path/90313#38220
 const ErrCode701099 ErrCode = 701099
+
+// ErrCode701100 时间戳不合法
+//
+// 排查方法: 开始时间必须小于结束时间；时间范围不能超过14天；非微盘专业版的企业只能查询90天内的数据
+const ErrCode701100 ErrCode = 701100
+
+// ErrCode701101 limit大小超过上限1000
+//
+// 排查方法: -
+const ErrCode701101 ErrCode = 701101
+
+// ErrCode701102 查询用户数超过上限100
+//
+// 排查方法: -
+const ErrCode701102 ErrCode = 701102
+
+// ErrCode701103 操作类型不合法
+//
+// 排查方法: -
+const ErrCode701103 ErrCode = 701103
+
+// ErrCode701104 操作来源不合法
+//
+// 排查方法: -
+const ErrCode701104 ErrCode = 701104
+
+// ErrCode701105 cursor不合法
+//
+// 排查方法: 检查是否企业微信返回的cursor
+const ErrCode701105 ErrCode = 701105
+
+// ErrCode701107 用户不在文档内容存档范围或者不在应用可见范围
+//
+// 排查方法: -
+const ErrCode701107 ErrCode = 701107
+
+// ErrCode701108 docid不合法
+//
+// 排查方法: -
+const ErrCode701108 ErrCode = 701108
+
+// ErrCode701109 导出格式不合法
+//
+// 排查方法: -
+const ErrCode701109 ErrCode = 701109
+
+// ErrCode701112 民生行业优惠政策已到期
+//
+// 排查方法: -
+const ErrCode701112 ErrCode = 701112
 
 // ErrCode701120 该接口不支持传父订单id
 //
@@ -6253,10 +6819,80 @@ const ErrCode701134 ErrCode = 701134
 // 排查方法: -
 const ErrCode701135 ErrCode = 701135
 
+// ErrCode701139 未授权会话存档应用，无法创建会话存档订单
+//
+// 排查方法: -
+const ErrCode701139 ErrCode = 701139
+
+// ErrCode701140 已经购买过此版本会话存档账号，不能再新购，只能续期、扩容、升级
+//
+// 排查方法: -
+const ErrCode701140 ErrCode = 701140
+
+// ErrCode701141 未购买此版本会话存档账号或已经过期，不能增购、续期、升级
+//
+// 排查方法: -
+const ErrCode701141 ErrCode = 701141
+
+// ErrCode701142 订单可能被其他并发请求更新，请重试
+//
+// 排查方法: -
+const ErrCode701142 ErrCode = 701142
+
+// ErrCode701143 在未支付或申请退款中的订单，不能下单
+//
+// 排查方法: -
+const ErrCode701143 ErrCode = 701143
+
+// ErrCode701146 海外企业不能购买会话存档
+//
+// 排查方法: -
+const ErrCode701146 ErrCode = 701146
+
+// ErrCode701147 余额支付超过单次支付限额上限
+//
+// 排查方法: -
+const ErrCode701147 ErrCode = 701147
+
+// ErrCode701149 只有临过期60天可以续期
+//
+// 排查方法: -
+const ErrCode701149 ErrCode = 701149
+
 // ErrCode701150 测试企业不支持分配许可
 //
 // 排查方法: -
 const ErrCode701150 ErrCode = 701150
+
+// ErrCode701151 jobid不正确或者已失效
+//
+// 排查方法: -
+const ErrCode701151 ErrCode = 701151
+
+// ErrCode701152 docid不正确或者对应的文档不是公开状态
+//
+// 排查方法: -
+const ErrCode701152 ErrCode = 701152
+
+// ErrCode701153 可查询文档列表的用户已达上限
+//
+// 排查方法: -
+const ErrCode701153 ErrCode = 701153
+
+// ErrCode701154 可导出的文档数量已达上限
+//
+// 排查方法: -
+const ErrCode701154 ErrCode = 701154
+
+// ErrCode701158 不支持的订单类型
+//
+// 排查方法: -
+const ErrCode701158 ErrCode = 701158
+
+// ErrCode701159 不合法的购买人数
+//
+// 排查方法: -
+const ErrCode701159 ErrCode = 701159
 
 // ErrCode701160 存在未通过支付检查的企业
 //
@@ -6268,6 +6904,36 @@ const ErrCode701160 ErrCode = 701160
 // 排查方法: -
 const ErrCode701161 ErrCode = 701161
 
+// ErrCode701163 合法的生效时间
+//
+// 排查方法: -
+const ErrCode701163 ErrCode = 701163
+
+// ErrCode701164 不存在可升级的版本
+//
+// 排查方法: -
+const ErrCode701164 ErrCode = 701164
+
+// ErrCode701165 少chat_archive_api字段
+//
+// 排查方法: -
+const ErrCode701165 ErrCode = 701165
+
+// ErrCode701166 操作者没有权限，或者已离职、退出、禁用
+//
+// 排查方法: -
+const ErrCode701166 ErrCode = 701166
+
+// ErrCode701167 购买人数超出上限
+//
+// 排查方法: -
+const ErrCode701167 ErrCode = 701167
+
+// ErrCode701169 只允许取消未支付的订单
+//
+// 排查方法: -
+const ErrCode701169 ErrCode = 701169
+
 // ErrCode701170 群活码第三方限免许可到期
 //
 // 排查方法: -
@@ -6277,6 +6943,415 @@ const ErrCode701170 ErrCode = 701170
 //
 // 排查方法: -
 const ErrCode701200 ErrCode = 701200
+
+// ErrCode701230 指定的原始的开始或者结束时间有误
+//
+// 排查方法: -
+const ErrCode701230 ErrCode = 701230
+
+// ErrCode701231 存在待生效的版本
+//
+// 排查方法: -
+const ErrCode701231 ErrCode = 701231
+
+// ErrCode701250 时间戳不合法
+//
+// 排查方法: 开始时间必须小于结束时间；时间范围不能超过14天。
+const ErrCode701250 ErrCode = 701250
+
+// ErrCode701252 cursor不合法
+//
+// 排查方法: -
+const ErrCode701252 ErrCode = 701252
+
+// ErrCode710000 非法的open_corpid
+//
+// 排查方法: -
+const ErrCode710000 ErrCode = 710000
+
+// ErrCode710002 非法的open_pending_corpid
+//
+// 排查方法: -
+const ErrCode710002 ErrCode = 710002
+
+// ErrCode710003 非法的formid
+//
+// 排查方法: -
+const ErrCode710003 ErrCode = 710003
+
+// ErrCode710004 非法的mailid
+//
+// 排查方法: -
+const ErrCode710004 ErrCode = 710004
+
+// ErrCode710006 非法的tmp_external_userid
+//
+// 排查方法: -
+const ErrCode710006 ErrCode = 710006
+
+// ErrCode710007 非法的gateway_id
+//
+// 排查方法: -
+const ErrCode710007 ErrCode = 710007
+
+// ErrCode710200 不合法的运动步数凭证
+//
+// 排查方法: -
+const ErrCode710200 ErrCode = 710200
+
+// ErrCode710201 用户不允许获取运动步数
+//
+// 排查方法: -
+const ErrCode710201 ErrCode = 710201
+
+// ErrCode710400 硬件云端接入设备model_accesstoken非法
+//
+// 排查方法: -
+const ErrCode710400 ErrCode = 710400
+
+// ErrCode710401 硬件云端接入设备model_accesstoken过期
+//
+// 排查方法: model_access_token有时效性，需要重新获取一次
+const ErrCode710401 ErrCode = 710401
+
+// ErrCode710402 硬件云端接入设备model_ticket非法
+//
+// 排查方法: -
+const ErrCode710402 ErrCode = 710402
+
+// ErrCode710403 缺少model_access_token参数
+//
+// 排查方法: -
+const ErrCode710403 ErrCode = 710403
+
+// ErrCode710600 消息msgid或者密钥信息不正确
+//
+// 排查方法: -
+const ErrCode710600 ErrCode = 710600
+
+// ErrCode710601 msgid不正确
+//
+// 排查方法: -
+const ErrCode710601 ErrCode = 710601
+
+// ErrCode710602 msgtype不正确
+//
+// 排查方法: -
+const ErrCode710602 ErrCode = 710602
+
+// ErrCode710603 密钥信息不正确
+//
+// 排查方法: -
+const ErrCode710603 ErrCode = 710603
+
+// ErrCode710605 消息解密失败
+//
+// 排查方法: 检查msgid和密钥信息是否正确
+const ErrCode710605 ErrCode = 710605
+
+// ErrCode710606 群ID不在授权范围内
+//
+// 排查方法: -
+const ErrCode710606 ErrCode = 710606
+
+// ErrCode710607 部门不在授权范围内
+//
+// 排查方法: -
+const ErrCode710607 ErrCode = 710607
+
+// ErrCode710608 用户不在授权范围内
+//
+// 排查方法: -
+const ErrCode710608 ErrCode = 710608
+
+// ErrCode710609 外部联系人的跟进人不在授权范围内
+//
+// 排查方法: -
+const ErrCode710609 ErrCode = 710609
+
+// ErrCode710610 关键词和关键行为不能同时为空
+//
+// 排查方法: -
+const ErrCode710610 ErrCode = 710610
+
+// ErrCode710611 cursor不正确
+//
+// 排查方法: -
+const ErrCode710611 ErrCode = 710611
+
+// ErrCode710612 关键词规则ID不存在
+//
+// 排查方法: -
+const ErrCode710612 ErrCode = 710612
+
+// ErrCode710613 msgid重复
+//
+// 排查方法: -
+const ErrCode710613 ErrCode = 710613
+
+// ErrCode710614 群内成员都不在授权范围内
+//
+// 排查方法: -
+const ErrCode710614 ErrCode = 710614
+
+// ErrCode710615 session_type不正确
+//
+// 排查方法: -
+const ErrCode710615 ErrCode = 710615
+
+// ErrCode710616 提交分析的任务类型不正确
+//
+// 排查方法: 检查本次提交的任务类型与jobid对应的任务类型是否一致
+const ErrCode710616 ErrCode = 710616
+
+// ErrCode710617 分析任务已经提交过了
+//
+// 排查方法: -
+const ErrCode710617 ErrCode = 710617
+
+// ErrCode710618 分析任务还未提交
+//
+// 排查方法: -
+const ErrCode710618 ErrCode = 710618
+
+// ErrCode710619 关键词规则数量已经超过上限
+//
+// 排查方法: 上限详见：[关键词规则管理]
+//
+// [关键词规则管理]: https://developer.work.weixin.qq.com/document/path/90313#97237
+const ErrCode710619 ErrCode = 710619
+
+// ErrCode710620 关键词规则ID不正确
+//
+// 排查方法: -
+const ErrCode710620 ErrCode = 710620
+
+// ErrCode710621 电话号码格式不正确
+//
+// 排查方法: -
+const ErrCode710621 ErrCode = 710621
+
+// ErrCode710622 银行卡号格式不正确
+//
+// 排查方法: -
+const ErrCode710622 ErrCode = 710622
+
+// ErrCode710623 单次分析任务的消息数量超过上限
+//
+// 排查方法: 上限详见：[会话内容分析]
+//
+// [会话内容分析]: https://developer.work.weixin.qq.com/document/path/90313#99527
+const ErrCode710623 ErrCode = 710623
+
+// ErrCode710624 不合法的群ID
+//
+// 排查方法: -
+const ErrCode710624 ErrCode = 710624
+
+// ErrCode710625 分析任务类型不正确
+//
+// 排查方法: -
+const ErrCode710625 ErrCode = 710625
+
+// ErrCode710626 自定义ID已存在
+//
+// 排查方法: -
+const ErrCode710626 ErrCode = 710626
+
+// ErrCode710627 空间不足
+//
+// 排查方法: -
+const ErrCode710627 ErrCode = 710627
+
+// ErrCode710628 摘要长度超过限制
+//
+// 排查方法: -
+const ErrCode710628 ErrCode = 710628
+
+// ErrCode710629 导出消息数量超过上限
+//
+// 排查方法: -
+const ErrCode710629 ErrCode = 710629
+
+// ErrCode710632 未创建过知识集
+//
+// 排查方法: -
+const ErrCode710632 ErrCode = 710632
+
+// ErrCode710633 分析任务失败
+//
+// 排查方法: -
+const ErrCode710633 ErrCode = 710633
+
+// ErrCode710634 分析任务失败
+//
+// 排查方法: -
+const ErrCode710634 ErrCode = 710634
+
+// ErrCode710635 自有模型未部署
+//
+// 排查方法: -
+const ErrCode710635 ErrCode = 710635
+
+// ErrCode710636 不合法的能力id
+//
+// 排查方法: -
+const ErrCode710636 ErrCode = 710636
+
+// ErrCode710637 所有消息均分析失败
+//
+// 排查方法: -
+const ErrCode710637 ErrCode = 710637
+
+// ErrCode710638 调用程序失败
+//
+// 排查方法: -
+const ErrCode710638 ErrCode = 710638
+
+// ErrCode710639 请求的内容或请求结果包含不合适的内容
+//
+// 排查方法: -
+const ErrCode710639 ErrCode = 710639
+
+// ErrCode710640 不支持的应用类型
+//
+// 排查方法: -
+const ErrCode710640 ErrCode = 710640
+
+// ErrCode710641 应用没有数据与智能专区权限
+//
+// 排查方法: -
+const ErrCode710641 ErrCode = 710641
+
+// ErrCode710642 等待程序/模型返回结果中
+//
+// 排查方法: -
+const ErrCode710642 ErrCode = 710642
+
+// ErrCode710643 应用没有知识集的授权
+//
+// 排查方法: -
+const ErrCode710643 ErrCode = 710643
+
+// ErrCode710644 应用没有通用模型的授权
+//
+// 排查方法: -
+const ErrCode710644 ErrCode = 710644
+
+// ErrCode710645 程序不存在或状态异常
+//
+// 排查方法: -
+const ErrCode710645 ErrCode = 710645
+
+// ErrCode710646 不合法的notify_id
+//
+// 排查方法: -
+const ErrCode710646 ErrCode = 710646
+
+// ErrCode710647 输入协议不匹配
+//
+// 排查方法: -
+const ErrCode710647 ErrCode = 710647
+
+// ErrCode710648 非法的关键行为值
+//
+// 排查方法: -
+const ErrCode710648 ErrCode = 710648
+
+// ErrCode710649 群id数量超过上限
+//
+// 排查方法: -
+const ErrCode710649 ErrCode = 710649
+
+// ErrCode710650 缺少关键词列表
+//
+// 排查方法: -
+const ErrCode710650 ErrCode = 710650
+
+// ErrCode710651 没有付费版本
+//
+// 排查方法: -
+const ErrCode710651 ErrCode = 710651
+
+// ErrCode710652 会话内容存档超过90天，已失效
+//
+// 排查方法: -
+const ErrCode710652 ErrCode = 710652
+
+// ErrCode710653 试用到期超过30天，试用期间的会话内容存档已失效
+//
+// 排查方法: -
+const ErrCode710653 ErrCode = 710653
+
+// ErrCode710654 付费到期超过30天，付费期间的会话内容存档已失效
+//
+// 排查方法: -
+const ErrCode710654 ErrCode = 710654
+
+// ErrCode710655 授权了有多个版本的存档范围,不允许迁移
+//
+// 排查方法: -
+const ErrCode710655 ErrCode = 710655
+
+// ErrCode710656 迁入目标应用已经设置了公钥，不允许迁移
+//
+// 排查方法: -
+const ErrCode710656 ErrCode = 710656
+
+// ErrCode710657 其他应用在迁移中，只能使用该应用继续重试
+//
+// 排查方法: -
+const ErrCode710657 ErrCode = 710657
+
+// ErrCode710658 已经迁移过了
+//
+// 排查方法: -
+const ErrCode710658 ErrCode = 710658
+
+// ErrCode710659 第三方存档接口还未设置公钥
+//
+// 排查方法: -
+const ErrCode710659 ErrCode = 710659
+
+// ErrCode710671 调试凭证已过期
+//
+// 排查方法: -
+const ErrCode710671 ErrCode = 710671
+
+// ErrCode710672 服务商非测试企业或应用非测试授权安装，不允许使用调试模式
+//
+// 排查方法: -
+const ErrCode710672 ErrCode = 710672
+
+// ErrCode710673 模型/程序不在调试模式下
+//
+// 排查方法: -
+const ErrCode710673 ErrCode = 710673
+
+// ErrCode710674 调用专区连接失败
+//
+// 排查方法: -
+const ErrCode710674 ErrCode = 710674
+
+// ErrCode710675 调用专区读写超时
+//
+// 排查方法: -
+const ErrCode710675 ErrCode = 710675
+
+// ErrCode710676 专区程序返回的http状态码不为200
+//
+// 排查方法: -
+const ErrCode710676 ErrCode = 710676
+
+// ErrCode710677 专区解密或者验签失败
+//
+// 排查方法: -
+const ErrCode710677 ErrCode = 710677
+
+// ErrCode710678 子表数量限制255个、单个子表限制150w格子/20w行/2000列
+//
+// 排查方法: -
+const ErrCode710678 ErrCode = 710678
 
 // ErrCode730000 非法的tmp_openid
 //
@@ -6313,9 +7388,11 @@ const ErrCode730005 ErrCode = 730005
 // 排查方法: -
 const ErrCode730006 ErrCode = 730006
 
-// ErrCode730007 企业不是专业版
+// ErrCode730007 企业不是专业版或购买的会议室数量不足10个
 //
-// 排查方法: -
+// 排查方法: 参考会议接口文档[概述]
+//
+// [概述]: https://developer.work.weixin.qq.com/document/path/90313#25775
 const ErrCode730007 ErrCode = 730007
 
 // ErrCode730008 会议已删除
@@ -6338,50 +7415,260 @@ const ErrCode730010 ErrCode = 730010
 // 排查方法: -
 const ErrCode730011 ErrCode = 730011
 
-// ErrCode790000 不合法的jobid
+// ErrCode740000 安全网关gateway_info的<host,port>冲突
 //
-// 排查方法: -
-const ErrCode790000 ErrCode = 790000
+// 排查方法: 企业内<host,port>唯一
+const ErrCode740000 ErrCode = 740000
 
-// ErrCode790001 不合法的任务状态
+// ErrCode740001 安全网关target_info的path冲突
 //
-// 排查方法: -
-const ErrCode790001 ErrCode = 790001
+// 排查方法: 企业内path唯一
+const ErrCode740001 ErrCode = 740001
 
-// ErrCode790002 任务已经在执行
+// ErrCode740002 安全网关数量超过上限
 //
-// 排查方法: -
-const ErrCode790002 ErrCode = 790002
+// 排查方法: 企业内最多10个
+const ErrCode740002 ErrCode = 740002
 
-// ErrCode790003 任务执行结果已经上报
+// ErrCode740003 单个安全网关内的path数量超过限制
 //
-// 排查方法: -
-const ErrCode790003 ErrCode = 790003
+// 排查方法: 单个网关内最多100个
+const ErrCode740003 ErrCode = 740003
 
-// ErrCode790004 未授权会话组件
+// ErrCode740004 安全网关不存在
 //
-// 排查方法: -
-const ErrCode790004 ErrCode = 790004
+// 排查方法: 可能已被删除
+const ErrCode740004 ErrCode = 740004
 
-// ErrCode790005 nonce重复
+// ErrCode740005 安全网关gateway_info的host非域名
 //
-// 排查方法: -
-const ErrCode790005 ErrCode = 790005
+// 排查方法: 目前要求必须是域名，不能配置ip
+const ErrCode740005 ErrCode = 740005
 
-// ErrCode790006 没有已发布的镜像
+// ErrCode740006 安全网关gateway_info的host验证失败
 //
-// 排查方法: -
-const ErrCode790006 ErrCode = 790006
+// 排查方法: 要求域名ICP备案跟企业主体一致
+const ErrCode740006 ErrCode = 740006
 
-// ErrCode790007 无法解密消息
+// ErrCode751001 企业未开通邮箱高级功能
 //
 // 排查方法: -
-const ErrCode790007 ErrCode = 790007
+const ErrCode751001 ErrCode = 751001
 
-// ErrCode790008 任务不在运行中
+// ErrCode751002 企业邮箱高级功能分配余额不足
 //
 // 排查方法: -
-const ErrCode790008 ErrCode = 790008
+const ErrCode751002 ErrCode = 751002
+
+// ErrCode770001 高级功能额度不足
+//
+// 排查方法: -
+const ErrCode770001 ErrCode = 770001
+
+// ErrCode770003 高级功能全企业购买模式不允许分配和撤销高级功能账户
+//
+// 排查方法: -
+const ErrCode770003 ErrCode = 770003
+
+// ErrCode770004 不存在合法的用户列表
+//
+// 排查方法: -
+const ErrCode770004 ErrCode = 770004
+
+// ErrCode770005 未开通业务高级功能
+//
+// 排查方法: -
+const ErrCode770005 ErrCode = 770005
+
+// ErrCode770006 不合法的jobid
+//
+// 排查方法: -
+const ErrCode770006 ErrCode = 770006
+
+// ErrCode770007 任务正在处理中
+//
+// 排查方法: -
+const ErrCode770007 ErrCode = 770007
+
+// ErrCode770008 存在用户账户分配高级功能超过7天，不允许撤销
+//
+// 排查方法: -
+const ErrCode770008 ErrCode = 770008
+
+// ErrCode770009 请求中所有合法用户账户均是高级功能账户
+//
+// 排查方法: -
+const ErrCode770009 ErrCode = 770009
+
+// ErrCode770010 已在腾讯会议侧购买高级功能，不允许通过此接口操作
+//
+// 排查方法: -
+const ErrCode770010 ErrCode = 770010
+
+// ErrCode770011 不合法的applyid
+//
+// 排查方法: -
+const ErrCode770011 ErrCode = 770011
+
+// ErrCode770013 仅支持修改API状态下创建的高级功能申请单
+//
+// 排查方法: -
+const ErrCode770013 ErrCode = 770013
+
+// ErrCode770014 高级功能申请单状态冲突
+//
+// 排查方法: -
+const ErrCode770014 ErrCode = 770014
+
+// ErrCode770015 高级功能审批单审批人信息非法
+//
+// 排查方法: -
+const ErrCode770015 ErrCode = 770015
+
+// ErrCode770016 不合法的审批url
+//
+// 排查方法: -
+const ErrCode770016 ErrCode = 770016
+
+// ErrCode770017 当前审批单状态无法更新
+//
+// 排查方法: -
+const ErrCode770017 ErrCode = 770017
+
+// ErrCode790010 任务不在进行中
+//
+// 排查方法: -
+const ErrCode790010 ErrCode = 790010
+
+// ErrCode790011 不合法的任务类型
+//
+// 排查方法: -
+const ErrCode790011 ErrCode = 790011
+
+// ErrCode790012 不合法的json模板
+//
+// 排查方法: -
+const ErrCode790012 ErrCode = 790012
+
+// ErrCode790013 不合法的json结果
+//
+// 排查方法: -
+const ErrCode790013 ErrCode = 790013
+
+// ErrCode790014 json结果跟模板不匹配
+//
+// 排查方法: -
+const ErrCode790014 ErrCode = 790014
+
+// ErrCode790015 不合法的json请求包
+//
+// 排查方法: -
+const ErrCode790015 ErrCode = 790015
+
+// ErrCode790016 json请求包跟模板不匹配
+//
+// 排查方法: -
+const ErrCode790016 ErrCode = 790016
+
+// ErrCode790017 不合法的job_info
+//
+// 排查方法: -
+const ErrCode790017 ErrCode = 790017
+
+// ErrCode790020 模型或程序与该应用不存在关联关系
+//
+// 排查方法: -
+const ErrCode790020 ErrCode = 790020
+
+// ErrCode790021 程序不是正常部署状态
+//
+// 排查方法: -
+const ErrCode790021 ErrCode = 790021
+
+// ErrCode790022 请求的结果包含不合适的内容
+//
+// 排查方法: -
+const ErrCode790022 ErrCode = 790022
+
+// ErrCode790023 模型或程序的请求正在执行中
+//
+// 排查方法: -
+const ErrCode790023 ErrCode = 790023
+
+// ErrCode790024 不能跨应用使用知识库
+//
+// 排查方法: -
+const ErrCode790024 ErrCode = 790024
+
+// ErrCode790025 知识库內容中的web_url参数非法
+//
+// 排查方法: -
+const ErrCode790025 ErrCode = 790025
+
+// ErrCode790026 知识库中內容总数超过限制
+//
+// 排查方法: -
+const ErrCode790026 ErrCode = 790026
+
+// ErrCode790027 一个企业内的知识库数量超过限制
+//
+// 排查方法: -
+const ErrCode790027 ErrCode = 790027
+
+// ErrCode790028 不能删除知识库中的全部內容
+//
+// 排查方法: -
+const ErrCode790028 ErrCode = 790028
+
+// ErrCode790029 知识库中存在相同的web_url
+//
+// 排查方法: -
+const ErrCode790029 ErrCode = 790029
+
+// ErrCode790032 非法的知识库內容名称
+//
+// 排查方法: 检查doc_name的长度是否过长，后缀是否和文件格式匹配等
+const ErrCode790032 ErrCode = 790032
+
+// ErrCode790033 名字中不能包含不可见字符
+//
+// 排查方法: -
+const ErrCode790033 ErrCode = 790033
+
+// ErrCode790034 不能使用已删除的知识库
+//
+// 排查方法: -
+const ErrCode790034 ErrCode = 790034
+
+// ErrCode790040 调用模型输入展开后长度过长
+//
+// 排查方法: -
+const ErrCode790040 ErrCode = 790040
+
+// ErrCode790041 调用模型传入的所有消息内容都获取失败
+//
+// 排查方法: -
+const ErrCode790041 ErrCode = 790041
+
+// ErrCode800000 不合法的知识库id
+//
+// 排查方法: -
+const ErrCode800000 ErrCode = 800000
+
+// ErrCode800001 不合法的模型或程序id
+//
+// 排查方法: -
+const ErrCode800001 ErrCode = 800001
+
+// ErrCode800002 模型或程序未部署
+//
+// 排查方法: -
+const ErrCode800002 ErrCode = 800002
+
+// ErrCode800003 模型或程序的能力id不存在
+//
+// 排查方法: -
+const ErrCode800003 ErrCode = 800003
 
 // ErrCode830001 用于上传临时素材的url非法
 //
@@ -6398,265 +7685,191 @@ const ErrCode830002 ErrCode = 830002
 // 排查方法: 确认url本身是否能正常访问
 const ErrCode830003 ErrCode = 830003
 
-// ErrCode400218 有参会成员未购买专业版账号
+// ErrCode842002 代开发应用模版未上线
 //
 // 排查方法: -
-const ErrCode400218 ErrCode = 400218
+const ErrCode842002 ErrCode = 842002
 
-// ErrCode400219 会议发起人未购买专业版账号
+// ErrCode842003 不是代开发应用模版
 //
 // 排查方法: -
-const ErrCode400219 ErrCode = 400219
+const ErrCode842003 ErrCode = 842003
 
-// ErrCode400220 创建会议行为异常，被风控策略拦截
+// ErrCode842004 代开发应用模版数量不合法
 //
 // 排查方法: -
-const ErrCode400220 ErrCode = 400220
+const ErrCode842004 ErrCode = 842004
 
-// ErrCode400221 正在进行中或者已经结束的会议不允许更新
+// ErrCode842005 不支持的应用类型
+//
+// 排查方法: 检查应用类型是否与文档说明一致
+const ErrCode842005 ErrCode = 842005
+
+// ErrCode842006 已存在代开发应用授权
 //
 // 排查方法: -
-const ErrCode400221 ErrCode = 400221
+const ErrCode842006 ErrCode = 842006
 
-// ErrCode400222 会议开始时间不允许小于当前时间
+// ErrCode844001 非法的output_file_format
+//
+// 排查方法: 判断输出文件格式是否正确
+const ErrCode844001 ErrCode = 844001
+
+// ErrCode844002 最近安装应用时间已超过7天，不再允许拨打公费电话联系管理员
+//
+// 排查方法: 请检查最近一次安装应用时间是否超过7天
+const ErrCode844002 ErrCode = 844002
+
+// ErrCode845001 openid账号类型不是公众号或小程序
 //
 // 排查方法: -
-const ErrCode400222 ErrCode = 400222
+const ErrCode845001 ErrCode = 845001
 
-// ErrCode400223 开始时间或者结束时间不合法
+// ErrCode845002 openid认证主体和企业认证主体不一致
+//
+// 排查方法: 请确保小程序或公众号已经认证，且认证的主体名称与企业的主体名称一致
+const ErrCode845002 ErrCode = 845002
+
+// ErrCode845003 unionid认证主体和企业认证主体不一致
+//
+// 排查方法: 请确保开放平台账号已经认证，且认证的主体名称与企业的主体名称一致
+const ErrCode845003 ErrCode = 845003
+
+// ErrCode846000 不是代开发或者第三方应用
 //
 // 排查方法: -
-const ErrCode400223 ErrCode = 400223
+const ErrCode846000 ErrCode = 846000
 
-// ErrCode400224 会中或者已经结束的会议不能取消
+// ErrCode2000002 CorpId参数无效
+//
+// 排查方法: 指定的CorpId不存在
+const ErrCode2000002 ErrCode = 2000002
+
+// ErrCode2000003 不存在远程开门的数据
 //
 // 排查方法: -
-const ErrCode400224 ErrCode = 400224
+const ErrCode2000003 ErrCode = 2000003
 
-// ErrCode400226 企业购买「会议高级功能」后才可以使用该字段
+// ErrCode2000004 远程开门数据记录的设备与当前请求设备不匹配
 //
 // 排查方法: -
-const ErrCode400226 ErrCode = 400226
+const ErrCode2000004 ErrCode = 2000004
 
-// ErrCode400227 非法的重复类型
+// ErrCode2000007 远程开门上报开门状态错误
 //
 // 排查方法: -
-const ErrCode400227 ErrCode = 400227
+const ErrCode2000007 ErrCode = 2000007
 
-// ErrCode400228 重复次数不合法
+// ErrCode2000009 门禁扫码开门上报开门operid非法
 //
 // 排查方法: -
-const ErrCode400228 ErrCode = 400228
+const ErrCode2000009 ErrCode = 2000009
 
-// ErrCode710400 硬件云端接入设备model_accesstoken非法
+// ErrCode2000010 门禁扫码开门上报开门状态错误
 //
 // 排查方法: -
-const ErrCode710400 ErrCode = 710400
+const ErrCode2000010 ErrCode = 2000010
 
-// ErrCode710401 硬件云端接入设备model_accesstoken过期
-//
-// 排查方法: model_access_token有时效性，需要重新获取一次
-const ErrCode710401 ErrCode = 710401
-
-// ErrCode710402 硬件云端接入设备model_ticket非法
+// ErrCode2022029 智能表的 行|列|大小 达到上限
 //
 // 排查方法: -
-const ErrCode710402 ErrCode = 710402
+const ErrCode2022029 ErrCode = 2022029
 
-// ErrCode710403 缺少model_access_token参数
+// ErrCode2022030 不合法的字段标题，重复、为空等
+//
+// 排查方法: 检查标题是否为空、重复
+const ErrCode2022030 ErrCode = 2022030
+
+// ErrCode2022031 ID已经存在
+//
+// 排查方法: 检查视图、字段、记录ID是否已经存在
+const ErrCode2022031 ErrCode = 2022031
+
+// ErrCode2022032 不合法的视图属性
+//
+// 排查方法: 合法的视图属性，参考：[viewproperty]
+//
+// [viewproperty]: https://developer.work.weixin.qq.com/document/path/99902#viewproperty
+const ErrCode2022032 ErrCode = 2022032
+
+// ErrCode2022033 不合法的筛选条件
+//
+// 排查方法: 合法的筛选条件，参考：[filterspec]
+//
+// [filterspec]: https://developer.work.weixin.qq.com/document/path/99902#filterspec
+const ErrCode2022033 ErrCode = 2022033
+
+// ErrCode2022034 不合法的日期值
+//
+// 排查方法: 合法的日期值，参考：[添加记录]
+//
+// [添加记录]: https://developer.work.weixin.qq.com/document/path/99907
+const ErrCode2022034 ErrCode = 2022034
+
+// ErrCode2022035 不合法的关联值
+//
+// 排查方法: 合法的关联值：参考：
+const ErrCode2022035 ErrCode = 2022035
+
+// ErrCode2022037 不合法的地理位置值
+//
+// 排查方法: 合法的地理位置值，参考：[celllocationvalue]
+//
+// [celllocationvalue]: https://developer.work.weixin.qq.com/document/path/99907#celllocationvalue
+const ErrCode2022037 ErrCode = 2022037
+
+// ErrCode2022040 不合法的字段列属性
+//
+// 排查方法: 合法的字段列属性，参考：[添加字段]
+//
+// [添加字段]: https://developer.work.weixin.qq.com/document/path/99904
+const ErrCode2022040 ErrCode = 2022040
+
+// ErrCode2022041 不合法的关联字段列属性
+//
+// 排查方法: 合法的关联字段列属性，参考：[referencefieldproperty]
+//
+// [referencefieldproperty]: https://developer.work.weixin.qq.com/document/path/99904#referencefieldproperty
+const ErrCode2022041 ErrCode = 2022041
+
+// ErrCode2022043 不合法的地址位置字段列属性
+//
+// 排查方法: 合法的地理位置字段列属性，参考：[locationfieldproperty]
+//
+// [locationfieldproperty]: https://developer.work.weixin.qq.com/document/path/99904#locationfieldproperty
+const ErrCode2022043 ErrCode = 2022043
+
+// ErrCode2022047 不合法的自动编号字段列属性
+//
+// 排查方法: 合法的自动编号字段列属性，参考：[autonumberfieldproperty]
+//
+// [autonumberfieldproperty]: https://developer.work.weixin.qq.com/document/path/99904#autonumberfieldproperty
+const ErrCode2022047 ErrCode = 2022047
+
+// ErrCode2022048 没有编辑权限
+//
+// 排查方法: 确认是否有文档权限和内容权限
+const ErrCode2022048 ErrCode = 2022048
+
+// ErrCode2022049 当前视图已被锁定，无法修改视图结构。
+//
+// 排查方法: 确认当前视图的公开级别
+const ErrCode2022049 ErrCode = 2022049
+
+// ErrCode2022050 当前视图不可见，无法修改视图结构。
+//
+// 排查方法: 确认当前视图的公开级别
+const ErrCode2022050 ErrCode = 2022050
+
+// ErrCode2022051 无法修改应用关联的记录
 //
 // 排查方法: -
-const ErrCode710403 ErrCode = 710403
+const ErrCode2022051 ErrCode = 2022051
 
-// ErrCode40106 device_access_token非法
+// ErrCode2022052 最多固定 3 个字段到工具栏
 //
 // 排查方法: -
-const ErrCode40106 ErrCode = 40106
-
-// ErrCode71044 设备已绑定，删除失败
-//
-// 排查方法: 设备绑定情况下，无法取消登记
-const ErrCode71044 ErrCode = 71044
-
-// ErrCode71045 operid非法
-//
-// 排查方法: -
-const ErrCode71045 ErrCode = 71045
-
-// ErrCode71046 无设备数据权限
-//
-// 排查方法: -
-const ErrCode71046 ErrCode = 71046
-
-// ErrCode71047 openuserid参数非法
-//
-// 排查方法: -
-const ErrCode71047 ErrCode = 71047
-
-// ErrCode71048 应用无授权设备
-//
-// 排查方法: -
-const ErrCode71048 ErrCode = 71048
-
-// ErrCode71049 考勤规则达到通过APP设置的上限
-//
-// 排查方法: -
-const ErrCode71049 ErrCode = 71049
-
-// ErrCode71050 门禁规则名称非法
-//
-// 排查方法: -
-const ErrCode71050 ErrCode = 71050
-
-// ErrCode71051 门禁规则非法
-//
-// 排查方法: -
-const ErrCode71051 ErrCode = 71051
-
-// ErrCode71052 获取测温数据错误
-//
-// 排查方法: -
-const ErrCode71052 ErrCode = 71052
-
-// ErrCode71056 userid不在设备可见范围内
-//
-// 排查方法: -
-const ErrCode71056 ErrCode = 71056
-
-// ErrCode71057 门禁规则id非法
-//
-// 排查方法: -
-const ErrCode71057 ErrCode = 71057
-
-// ErrCode71058 userid不在应用可见范围内
-//
-// 排查方法: -
-const ErrCode71058 ErrCode = 71058
-
-// ErrCode71059 门禁规则的配置范围超过授权应用可见范围，不可删除和修改
-//
-// 排查方法: -
-const ErrCode71059 ErrCode = 71059
-
-// ErrCode71060 门禁规则的配置范围超过授权应用可见范围，不可删除和修改
-//
-// 排查方法: -
-const ErrCode71060 ErrCode = 71060
-
-// ErrCode71062 文件名称非法
-//
-// 排查方法: -
-const ErrCode71062 ErrCode = 71062
-
-// ErrCode71063 同时缺少media_id和download_url参数
-//
-// 排查方法: -
-const ErrCode71063 ErrCode = 71063
-
-// ErrCode71064 download_url非法或者从download_url下载文件失败
-//
-// 排查方法: -
-const ErrCode71064 ErrCode = 71064
-
-// ErrCode71065 硬件不支持打印功能禁止调用
-//
-// 排查方法: -
-const ErrCode71065 ErrCode = 71065
-
-// ErrCode71066 硬件不支持扫描功能禁止调用
-//
-// 排查方法: -
-const ErrCode71066 ErrCode = 71066
-
-// ErrCode71067 打印文件转码配置版本不合法
-//
-// 排查方法: -
-const ErrCode71067 ErrCode = 71067
-
-// ErrCode71068 打印文件转码配置版本过期
-//
-// 排查方法: -
-const ErrCode71068 ErrCode = 71068
-
-// ErrCode71069 打印文件转码页码不合法
-//
-// 排查方法: -
-const ErrCode71069 ErrCode = 71069
-
-// ErrCode71070 userid 不在设备使用范围内
-//
-// 排查方法: -
-const ErrCode71070 ErrCode = 71070
-
-// ErrCode71071 时间戳不合法
-//
-// 排查方法: -
-const ErrCode71071 ErrCode = 71071
-
-// ErrCode71072 设备型号未发布，禁止调用此接口
-//
-// 排查方法: 发布该型号后重试
-const ErrCode71072 ErrCode = 71072
-
-// ErrCode71075 扫描上传文件授权码不合法
-//
-// 排查方法: -
-const ErrCode71075 ErrCode = 71075
-
-// ErrCode71076 禁止修改或者删除默认不可通行规则
-//
-// 排查方法: -
-const ErrCode71076 ErrCode = 71076
-
-// ErrCode701100 时间戳不合法
-//
-// 排查方法: 开始时间必须小于结束时间；时间范围不能超过14天；非微盘专业版的企业只能查询90天内的数据
-const ErrCode701100 ErrCode = 701100
-
-// ErrCode701101 limit大小超过上限1000
-//
-// 排查方法: -
-const ErrCode701101 ErrCode = 701101
-
-// ErrCode701102 查询用户数超过上限100
-//
-// 排查方法: -
-const ErrCode701102 ErrCode = 701102
-
-// ErrCode701103 操作类型不合法
-//
-// 排查方法: -
-const ErrCode701103 ErrCode = 701103
-
-// ErrCode701104 操作来源不合法
-//
-// 排查方法: -
-const ErrCode701104 ErrCode = 701104
-
-// ErrCode701105 cursor不合法
-//
-// 排查方法: 检查是否企业微信返回的cursor
-const ErrCode701105 ErrCode = 701105
-
-// ErrCode710200 不合法的运动步数凭证
-//
-// 排查方法: -
-const ErrCode710200 ErrCode = 710200
-
-// ErrCode710201 用户不允许获取运动步数
-//
-// 排查方法: -
-const ErrCode710201 ErrCode = 710201
-
-// ErrCode751001 企业未开通邮箱高级功能
-//
-// 排查方法: -
-const ErrCode751001 ErrCode = 751001
-
-// ErrCode751002 企业邮箱高级功能分配余额不足
-//
-// 排查方法: -
-const ErrCode751002 ErrCode = 751002
+const ErrCode2022052 ErrCode = 2022052
 
 // ErrCode2400001 请求参数错误
 //
@@ -6692,33 +7905,3 @@ const ErrCode2400007 ErrCode = 2400007
 //
 // 排查方法: -
 const ErrCode2400008 ErrCode = 2400008
-
-// ErrCode400010 block_hint非法
-//
-// 排查方法: -
-const ErrCode400010 ErrCode = 400010
-
-// ErrCode400011 block_hint对应的拦截已过期
-//
-// 排查方法: -
-const ErrCode400011 ErrCode = 400011
-
-// ErrCode400012 不允许通过该block_hint解除拦截
-//
-// 排查方法: -
-const ErrCode400012 ErrCode = 400012
-
-// ErrCode400013 解拦截次数超过限制
-//
-// 排查方法: -
-const ErrCode400013 ErrCode = 400013
-
-// ErrCode400301 5分钟内有相同的会议正在创建中，暂不可再创建
-//
-// 排查方法: 若相同的会议未创建成功，可于相同会议首次创建时间5分钟后重新创建
-const ErrCode400301 ErrCode = 400301
-
-// ErrCode400302 相同的会议已经创建成功
-//
-// 排查方法: 若明确需要创建相同的会议，可在创建会议请求包中设置"skip_duplicate_check":true 跳过重复会议检查
-const ErrCode400302 ErrCode = 400302
