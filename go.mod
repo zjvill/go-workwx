@@ -1,6 +1,6 @@
 module github.com/xen0n/go-workwx/v2
 
-go 1.19
+go 1.21
 
 require (
 	github.com/PuerkitoBio/goquery v1.8.1
