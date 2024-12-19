@@ -1347,9 +1347,9 @@ type TemplateCard struct {
 }
 
 type TemplateCardUpdateMessage struct {
-	UserIds      []string `json:"userids" validate:"omitempty,max=100"`
-	PartyIds     []int64  `json:"partyids" validate:"omitempty,max=100"`
-	TagIds       []int32  `json:"tagids" validate:"omitempty,max=100"`
+	UserIDs      []string `json:"userids" validate:"omitempty,max=100"`
+	PartyIDs     []int64  `json:"partyids" validate:"omitempty,max=100"`
+	TagIDs       []int32  `json:"tagids" validate:"omitempty,max=100"`
 	AtAll        int      `json:"atall,omitempty"`
 	ResponseCode string   `json:"response_code"`
 	Button       struct {

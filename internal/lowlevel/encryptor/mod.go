@@ -8,6 +8,7 @@ import (
 	"encoding/binary"
 	"errors"
 	"io"
+	"math"
 
 	"github.com/xen0n/go-workwx/v2/internal/lowlevel/pkcs7"
 )
@@ -39,6 +40,7 @@ func (o *customEntropySource) applyTo(x *WorkwxEncryptor) {
 }
 
 var errMalformedEncodingAESKey = errors.New("malformed EncodingAESKey")
+var errPayloadTooBig = errors.New("payload too big")
 
 func NewWorkwxEncryptor(
 	encodingAESKey string,
@@ -112,7 +114,11 @@ func (e *WorkwxEncryptor) prepareBufForEncryption(payload *WorkwxPayload) ([]byt
 	}
 
 	buf = buf[:cap(buf)] // grow to full capacity
-	binary.BigEndian.PutUint32(buf[16:], uint32(len(payload.Msg)))
+	msglen := len(payload.Msg)
+	if msglen < 0 || msglen > math.MaxUint32 {
+		return nil, errPayloadTooBig
+	}
+	binary.BigEndian.PutUint32(buf[16:], uint32(msglen))
 	copy(buf[20:], payload.Msg)
 	copy(buf[20+len(payload.Msg):], payload.ReceiveID)
 
