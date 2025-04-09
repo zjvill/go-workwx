@@ -17,10 +17,22 @@ on:
 jobs:
 
   build:
-    runs-on: ubuntu-latest
     strategy:
       matrix:
-        go: [ 'oldstable', 'stable' ]
+        include:
+          - go: 'oldstable'
+            goarch: amd64
+            runs-on: ubuntu-latest
+          - go: 'stable'
+            goarch: amd64
+            runs-on: ubuntu-latest
+          - go: 'stable'
+            goarch: '386'
+            runs-on: ubuntu-latest
+          - go: 'stable'
+            goarch: arm64
+            runs-on: ubuntu-24.04-arm
+    runs-on: ${{ matrix.runs-on }}
     steps:
     - uses: actions/checkout@v4
 
@@ -28,6 +40,9 @@ jobs:
       uses: actions/setup-go@v5
       with:
         go-version: ${{ matrix.go }}
+
+    - name: Set up GOARCH
+      run: export GOARCH="${{ matrix.goarch }}"
 
     - name: Build
       run: go build -v ./...
