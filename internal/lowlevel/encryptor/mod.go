@@ -114,8 +114,8 @@ func (e *WorkwxEncryptor) prepareBufForEncryption(payload *WorkwxPayload) ([]byt
 	}
 
 	buf = buf[:cap(buf)] // grow to full capacity
-	msglen := len(payload.Msg)
-	if msglen < 0 || msglen > math.MaxUint32 {
+	msglen := uint64(len(payload.Msg))
+	if msglen > uint64(math.MaxUint32) {
 		return nil, errPayloadTooBig
 	}
 	binary.BigEndian.PutUint32(buf[16:], uint32(msglen))
