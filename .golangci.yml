@@ -1,23 +1,11 @@
-run:
-  timeout: 2m
+version: "2"
 
 linters:
   enable:
-    # enabled by default
-    # https://golangci-lint.run/usage/linters/
-    - govet
-    - errcheck
-    - staticcheck
-    - unused
-    - gosimple
-    - ineffassign
-    - typecheck
     # project additions
     # keep this list alphabetically sorted
     - bodyclose
     - goconst
-    # - gofmt  -- goimports contains this
-    - goimports
     - gosec
     - misspell
     - nakedret
@@ -25,13 +13,35 @@ linters:
     - prealloc
     - revive
     - unconvert
+  settings:
+    misspell:
+      locale: US
+    nakedret:
+      max-func-lines: 1
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
 
-linters-settings:
-  gofmt:
-    simplify: true
-  goimports:
-    local-prefixes: github.com/xen0n/go-workwx
-  misspell:
-    locale: US
-  nakedret:
-    max-func-lines: 1
+formatters:
+  enable:
+    - goimports
+  settings:
+    gofmt:
+      simplify: true
+    goimports:
+      local-prefixes:
+        - github.com/xen0n/go-workwx
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
