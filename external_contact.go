@@ -39,9 +39,32 @@ func (c *WorkwxApp) BatchListExternalContact(userID string, cursor string, limit
 	return &BatchListExternalContactsResp{Result: resp.ExternalContactList, NextCursor: resp.NextCursor}, nil
 }
 
-// ExternalContactCustomerAcquisition 获取获客客户列表
-func (c *WorkwxApp) ExternalContactCustomerAcquisition(linkId string, cursor string, limit int) (*ExternalContactCustomerAcquisitionResp, error) {
-	resp, err := c.execExternalContactCustomerAcquisition(reqExternalContactCustomerAcquisition{
+// ListExternalContactCustomerAcquisitionLink 获取获客链接列表
+func (c *WorkwxApp) ListExternalContactCustomerAcquisitionLink(cursor string, limit int) (*ExternalContactCustomerAcquisitionLinkListResp, error) {
+	resp, err := c.execExternalContactCustomerAcquisitionLinkList(reqExternalContactCustomerAcquisitionLinkList{
+		Cursor: cursor,
+		Limit:  limit,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &ExternalContactCustomerAcquisitionLinkListResp{Result: resp.LinkIdList, NextCursor: resp.NextCursor}, nil
+}
+
+// GetExternalContactCustomerAcquisitionLink 获取获客链接详情
+func (c *WorkwxApp) GetExternalContactCustomerAcquisitionLink(linkId string) (*ExternalContactCustomerAcquisitionInfo, error) {
+	resp, err := c.execExternalContactCustomerAcquisitionInfo(reqExternalContactCustomerAcquisitionInfo{
+		LinkId: linkId,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &resp.Link, nil
+}
+
+// ExternalContactCustomerAcquisitionCustomer 获取获客客户列表
+func (c *WorkwxApp) ExternalContactCustomerAcquisitionCustomer(linkId string, cursor string, limit int) (*ExternalContactCustomerAcquisitionCustomerResp, error) {
+	resp, err := c.execExternalContactCustomerAcquisitionCustomer(reqExternalContactCustomerAcquisitionCustomer{
 		LinkId: linkId,
 		Cursor: cursor,
 		Limit:  limit,
@@ -49,7 +72,7 @@ func (c *WorkwxApp) ExternalContactCustomerAcquisition(linkId string, cursor str
 	if err != nil {
 		return nil, err
 	}
-	return &ExternalContactCustomerAcquisitionResp{Result: resp.CustomerList, NextCursor: resp.NextCursor}, nil
+	return &ExternalContactCustomerAcquisitionCustomerResp{Result: resp.CustomerList, NextCursor: resp.NextCursor}, nil
 }
 
 // RemarkExternalContact 修改客户备注信息

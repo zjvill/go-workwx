@@ -87,9 +87,11 @@ Name|Request Type|Response Type|Access Token|URL|Doc
 
 ## API calls
 
-Name|Request Type|Response Type|Access Token| URL                                                           |Doc
-:---|------------|-------------|------------|:--------------------------------------------------------------|:--
-`execExternalContactCustomerAcquisition`|`reqExternalContactCustomerAcquisition`|`respExternalContactCustomerAcquisition`|+| `POST /cgi-bin/externalcontact/customer_acquisition/customer` |[获取获客客户列表](https://developer.work.weixin.qq.com/document/path/97298)
+Name| Request Type                                    | Response Type                                    |Access Token| URL                                                            |Doc
+:---|-------------------------------------------------|--------------------------------------------------|------------|:---------------------------------------------------------------|:--
+`execExternalContactCustomerAcquisitionLinkList`| `reqExternalContactCustomerAcquisitionLinkList` | `respExternalContactCustomerAcquisitionLinkList` |+| `POST /cgi-bin/externalcontact/customer_acquisition/list_link` |[获取获客链接列表](https://developer.work.weixin.qq.com/document/path/97297)
+`execExternalContactCustomerAcquisitionInfo`| `reqExternalContactCustomerAcquisitionInfo`     | `respExternalContactCustomerAcquisitionInfo`     |+| `POST /cgi-bin/externalcontact/customer_acquisition/get`       |[获取获客链接详情](https://developer.work.weixin.qq.com/document/path/97297)
+`execExternalContactCustomerAcquisitionCustomer`| `reqExternalContactCustomerAcquisitionCustomer` | `respExternalContactCustomerAcquisitionCustomer` |+| `POST /cgi-bin/externalcontact/customer_acquisition/customer`  |[获取获客客户列表](https://developer.work.weixin.qq.com/document/path/97298)
 
 
 # 外部联系人管理 - 客户标签管理
