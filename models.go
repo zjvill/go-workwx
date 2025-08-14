@@ -593,8 +593,82 @@ type respExternalContactBatchList struct {
 	ExternalContactList []ExternalContactBatchInfo `json:"external_contact_list"`
 }
 
-// ExternalContactCustomerInfo 获客助手客户信息
-type ExternalContactCustomerInfo struct {
+// ExternalContactCustomerAcquisitionLinkListResp 获取获客链接列表
+type ExternalContactCustomerAcquisitionLinkListResp struct {
+	Result     []string
+	NextCursor string
+}
+
+// reqExternalContactCustomerAcquisitionLinkList 获取获客链接列表
+type reqExternalContactCustomerAcquisitionLinkList struct {
+	Cursor string `json:"cursor"`
+	Limit  int    `json:"limit"`
+}
+
+var _ bodyer = reqExternalContactCustomerAcquisitionLinkList{}
+
+func (x reqExternalContactCustomerAcquisitionLinkList) intoBody() ([]byte, error) {
+	return marshalIntoJSONBody(x)
+}
+
+// respExternalContactBatchList 获取获客链接列表
+type respExternalContactCustomerAcquisitionLinkList struct {
+	respCommon
+	NextCursor string   `json:"next_cursor"`
+	LinkIdList []string `json:"link_id_list"`
+}
+
+// ExternalContactCustomerAcquisitionInfo 获客链接信息
+type ExternalContactCustomerAcquisitionInfo struct {
+	//获客链接的名称
+	LinkName string `json:"link_name"`
+	//获客链接实际的url
+	Url string `json:"url"`
+	//创建时间
+	CreateTime time.Time `json:"create_time"`
+	//是否无需验证，默认为true
+	SkipVerify bool `json:"skip_verify"`
+	//该获客链接使用范围
+	Range ExternalContactCustomerAcquisitionRange `json:"range"`
+	//优先级选项
+	PriorityOption ExternalContactCustomerAcquisitionRange `json:"priority_option"`
+}
+
+// ExternalContactCustomerAcquisitionRange 该获客链接使用范围
+type ExternalContactCustomerAcquisitionRange struct {
+	//该获客链接使用范围成员列表
+	UserList []string `json:"user_list"`
+	//该获客链接使用范围的部门列表
+	DepartmentList []int `json:"department_list"`
+}
+
+// ExternalContactCustomerAcquisitionPriorityOption 优先级选项
+type ExternalContactCustomerAcquisitionPriorityOption struct {
+	//优先分配类型，1-全企业范围内优先分配给有好友关系的；2-指定范围内优先分配有好友关系的
+	PriorityType int `json:"priority_type"`
+	//priority_type为2时的指定成员列表
+	PriorityUseridList []string `json:"priority_userid_list"`
+}
+
+// reqExternalContactCustomerAcquisitionInfo 获客链接信息
+type reqExternalContactCustomerAcquisitionInfo struct {
+	LinkId string `json:"link_id"`
+}
+
+var _ bodyer = reqExternalContactCustomerAcquisitionInfo{}
+
+func (x reqExternalContactCustomerAcquisitionInfo) intoBody() ([]byte, error) {
+	return marshalIntoJSONBody(x)
+}
+
+// respExternalContactCustomerAcquisitionInfo 获客链接信息
+type respExternalContactCustomerAcquisitionInfo struct {
+	respCommon
+	Link ExternalContactCustomerAcquisitionInfo `json:"link"`
+}
+
+// ExternalContactCustomerAcquisitionCustomerInfo 获客助手客户信息
+type ExternalContactCustomerAcquisitionCustomerInfo struct {
 	//客户external_userid
 	ExternalUserid string `json:"external_userid"`
 	//通过获客链接添加此客户的跟进人userid
@@ -605,30 +679,30 @@ type ExternalContactCustomerInfo struct {
 	State string `json:"state"`
 }
 
-// ExternalContactCustomerAcquisitionResp 获客助手客户信息
-type ExternalContactCustomerAcquisitionResp struct {
-	Result     []ExternalContactCustomerInfo
+// ExternalContactCustomerAcquisitionCustomerResp 获客助手客户信息
+type ExternalContactCustomerAcquisitionCustomerResp struct {
+	Result     []ExternalContactCustomerAcquisitionCustomerInfo
 	NextCursor string
 }
 
-// reqExternalContactCustomerAcquisition 获客助手客户信息
-type reqExternalContactCustomerAcquisition struct {
+// reqExternalContactCustomerAcquisitionCustomer 获客助手客户信息
+type reqExternalContactCustomerAcquisitionCustomer struct {
 	LinkId string `json:"link_id"`
 	Cursor string `json:"cursor"`
 	Limit  int    `json:"limit"`
 }
 
-var _ bodyer = reqExternalContactCustomerAcquisition{}
+var _ bodyer = reqExternalContactCustomerAcquisitionCustomer{}
 
-func (x reqExternalContactCustomerAcquisition) intoBody() ([]byte, error) {
+func (x reqExternalContactCustomerAcquisitionCustomer) intoBody() ([]byte, error) {
 	return marshalIntoJSONBody(x)
 }
 
 // respExternalContactBatchList 获客助手客户信息
-type respExternalContactCustomerAcquisition struct {
+type respExternalContactCustomerAcquisitionCustomer struct {
 	respCommon
-	NextCursor   string                        `json:"next_cursor"`
-	CustomerList []ExternalContactCustomerInfo `json:"customer_list"`
+	NextCursor   string                                           `json:"next_cursor"`
+	CustomerList []ExternalContactCustomerAcquisitionCustomerInfo `json:"customer_list"`
 }
 
 // reqExternalContactRemark 获取客户详情
