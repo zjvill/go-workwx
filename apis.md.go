@@ -233,6 +233,17 @@ func (c *WorkwxApp) execExternalContactRemark(req reqExternalContactRemark) (res
 	return resp, nil
 }
 
+// execExternalContactCustomerAcquisition 获取获客客户列表
+func (c *WorkwxApp) execExternalContactCustomerAcquisition(req reqExternalContactCustomerAcquisition) (respExternalContactCustomerAcquisition, error) {
+	var resp respExternalContactCustomerAcquisition
+	err := executeQyapiJSONPost(c, "/cgi-bin/externalcontact/customer_acquisition/customer", req, &resp, true)
+	if err != nil {
+		return respExternalContactCustomerAcquisition{}, err
+	}
+
+	return resp, nil
+}
+
 // execExternalContactListCorpTags 获取企业标签库
 func (c *WorkwxApp) execExternalContactListCorpTags(req reqExternalContactListCorpTags) (respExternalContactListCorpTags, error) {
 	var resp respExternalContactListCorpTags

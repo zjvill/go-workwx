@@ -83,6 +83,15 @@ Name|Request Type|Response Type|Access Token|URL|Doc
 `execExternalContactBatchList`|`reqExternalContactBatchList`|`respExternalContactBatchList`|+|`POST /cgi-bin/externalcontact/batch/get_by_user`|[批量获取客户详情](https://work.weixin.qq.com/api/doc/90000/90135/92994)
 `execExternalContactRemark`|`reqExternalContactRemark`|`respExternalContactRemark`|+|`POST /cgi-bin/externalcontact/remark`|[修改客户备注信息](https://work.weixin.qq.com/api/doc/90000/90135/92115)
 
+# 外部联系人管理 - 获客助手
+
+## API calls
+
+Name|Request Type|Response Type|Access Token| URL                                                           |Doc
+:---|------------|-------------|------------|:--------------------------------------------------------------|:--
+`execExternalContactCustomerAcquisition`|`reqExternalContactCustomerAcquisition`|`respExternalContactCustomerAcquisition`|+| `POST /cgi-bin/externalcontact/customer_acquisition/customer` |[获取获客客户列表](https://developer.work.weixin.qq.com/document/path/97298)
+
+
 # 外部联系人管理 - 客户标签管理
 
 ## API calls

@@ -593,6 +593,44 @@ type respExternalContactBatchList struct {
 	ExternalContactList []ExternalContactBatchInfo `json:"external_contact_list"`
 }
 
+// ExternalContactCustomerInfo 获客助手客户信息
+type ExternalContactCustomerInfo struct {
+	//客户external_userid
+	ExternalUserid string `json:"external_userid"`
+	//通过获客链接添加此客户的跟进人userid
+	UserId string `json:"userid"`
+	//会话状态，0-客户未发消息 1-客户已发送消息 2-客户发送消息状态未知
+	ChatStatus int `json:"chat_status"`
+	//用于区分客户具体是通过哪个获客链接进行添加，用户可在获客链接后拼接customer_channel=自定义字符串，字符串不超过64字节，超过会被截断。通过点击带有customer_channel参数的链接获取到的客户，调用获客信息接口或获取客户详情接口时，返回的state参数即为链接后拼接自定义字符串
+	State string `json:"state"`
+}
+
+// ExternalContactCustomerAcquisitionResp 获客助手客户信息
+type ExternalContactCustomerAcquisitionResp struct {
+	Result     []ExternalContactCustomerInfo
+	NextCursor string
+}
+
+// reqExternalContactCustomerAcquisition 获客助手客户信息
+type reqExternalContactCustomerAcquisition struct {
+	LinkId string `json:"link_id"`
+	Cursor string `json:"cursor"`
+	Limit  int    `json:"limit"`
+}
+
+var _ bodyer = reqExternalContactCustomerAcquisition{}
+
+func (x reqExternalContactCustomerAcquisition) intoBody() ([]byte, error) {
+	return marshalIntoJSONBody(x)
+}
+
+// respExternalContactBatchList 获客助手客户信息
+type respExternalContactCustomerAcquisition struct {
+	respCommon
+	NextCursor   string                        `json:"next_cursor"`
+	CustomerList []ExternalContactCustomerInfo `json:"customer_list"`
+}
+
 // reqExternalContactRemark 获取客户详情
 type reqExternalContactRemark struct {
 	Remark *ExternalContactRemark
