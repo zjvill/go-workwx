@@ -3,7 +3,7 @@ package commands
 import (
 	"github.com/urfave/cli/v2"
 
-	"github.com/xen0n/go-workwx/v2"
+	"github.com/zjvill/go-workwx/v2"
 )
 
 // InitApp defines the workwxctl CLI.

@@ -14,7 +14,7 @@
 
 ```go
 import (
-    "github.com/xen0n/go-workwx/v2" // package workwx
+    "github.com/zjvill/go-workwx/v2" // package workwx
 )
 ```
 
