@@ -255,6 +255,17 @@ func (c *WorkwxApp) execExternalContactCustomerAcquisitionInfo(req reqExternalCo
 	return resp, nil
 }
 
+// execExternalContactCustomerAcquisitionCreate 创建获客链接
+func (c *WorkwxApp) execExternalContactCustomerAcquisitionCreate(req reqExternalContactCustomerAcquisitionCreate) (respExternalContactCustomerAcquisitionCreate, error) {
+	var resp respExternalContactCustomerAcquisitionCreate
+	err := executeQyapiJSONPost(c, "/cgi-bin/externalcontact/customer_acquisition/create_link", req, &resp, true)
+	if err != nil {
+		return respExternalContactCustomerAcquisitionCreate{}, err
+	}
+
+	return resp, nil
+}
+
 // execExternalContactCustomerAcquisitionCustomer 获取获客客户列表
 func (c *WorkwxApp) execExternalContactCustomerAcquisitionCustomer(req reqExternalContactCustomerAcquisitionCustomer) (respExternalContactCustomerAcquisitionCustomer, error) {
 	var resp respExternalContactCustomerAcquisitionCustomer
