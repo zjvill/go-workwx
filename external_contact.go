@@ -59,7 +59,33 @@ func (c *WorkwxApp) GetExternalContactCustomerAcquisitionLink(linkId string) (*E
 	if err != nil {
 		return nil, err
 	}
-	return &resp.Link, nil
+	return &ExternalContactCustomerAcquisitionInfo{
+		LinkName:       resp.Link.LinkName,
+		Url:            resp.Link.Url,
+		CreateTime:     time.Unix(int64(resp.Link.CreateTime), 0),
+		SkipVerify:     resp.Link.SkipVerify,
+		Range:          resp.Link.Range,
+		PriorityOption: resp.Link.PriorityOption,
+	}, nil
+}
+
+// CreateExternalContactCustomerAcquisitionLink 创建获客链接
+func (c *WorkwxApp) CreateExternalContactCustomerAcquisitionLink(linkName string, customerAcquisitionRange ExternalContactCustomerAcquisitionRange, priorityOption ExternalContactCustomerAcquisitionPriorityOption, skipVerify bool) (*ExternalContactCustomerAcquisitionCreateResp, error) {
+	resp, err := c.execExternalContactCustomerAcquisitionCreate(reqExternalContactCustomerAcquisitionCreate{
+		LinkName:       linkName,
+		Range:          customerAcquisitionRange,
+		PriorityOption: priorityOption,
+		SkipVerify:     skipVerify,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &ExternalContactCustomerAcquisitionCreateResp{
+		LinkId:     resp.Link.LinkId,
+		LinkName:   resp.Link.LinkName,
+		Url:        resp.Link.Url,
+		CreateTime: time.Unix(int64(resp.Link.CreateTime), 0),
+	}, nil
 }
 
 // ExternalContactCustomerAcquisitionCustomer 获取获客客户列表

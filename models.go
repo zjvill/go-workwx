@@ -631,7 +631,7 @@ type ExternalContactCustomerAcquisitionInfo struct {
 	//该获客链接使用范围
 	Range ExternalContactCustomerAcquisitionRange `json:"range"`
 	//优先级选项
-	PriorityOption ExternalContactCustomerAcquisitionRange `json:"priority_option"`
+	PriorityOption ExternalContactCustomerAcquisitionPriorityOption `json:"priority_option"`
 }
 
 // ExternalContactCustomerAcquisitionRange 该获客链接使用范围
@@ -650,6 +650,49 @@ type ExternalContactCustomerAcquisitionPriorityOption struct {
 	PriorityUseridList []string `json:"priority_userid_list"`
 }
 
+// reqExternalContactCustomerAcquisitionCreate 创建获客链接
+type reqExternalContactCustomerAcquisitionCreate struct {
+	//获客链接的名称
+	LinkName string `json:"link_name"`
+	//该获客链接使用范围
+	Range ExternalContactCustomerAcquisitionRange `json:"range"`
+	//优先级选项
+	PriorityOption ExternalContactCustomerAcquisitionPriorityOption `json:"priority_option"`
+	//是否无需验证，默认为true
+	SkipVerify bool `json:"skip_verify"`
+}
+
+var _ bodyer = reqExternalContactCustomerAcquisitionCreate{}
+
+func (x reqExternalContactCustomerAcquisitionCreate) intoBody() ([]byte, error) {
+	return marshalIntoJSONBody(x)
+}
+
+// respExternalContactCustomerAcquisitionCreate 创建获客链接
+type respExternalContactCustomerAcquisitionCreate struct {
+	respCommon
+	Link struct {
+		//获客链接的id
+		LinkId string `json:"link_id"`
+		//获客链接的名称
+		LinkName string `json:"link_name"`
+		//获客链接实际的url
+		Url string `json:"url"`
+		//创建时间
+		CreateTime int `json:"create_time"`
+	} `json:"link"`
+}
+
+type ExternalContactCustomerAcquisitionCreateResp struct {
+	LinkId string `json:"link_id"`
+	//获客链接的名称
+	LinkName string `json:"link_name"`
+	//获客链接实际的url
+	Url string `json:"url"`
+	//创建时间
+	CreateTime time.Time `json:"create_time"`
+}
+
 // reqExternalContactCustomerAcquisitionInfo 获客链接信息
 type reqExternalContactCustomerAcquisitionInfo struct {
 	LinkId string `json:"link_id"`
@@ -664,7 +707,20 @@ func (x reqExternalContactCustomerAcquisitionInfo) intoBody() ([]byte, error) {
 // respExternalContactCustomerAcquisitionInfo 获客链接信息
 type respExternalContactCustomerAcquisitionInfo struct {
 	respCommon
-	Link ExternalContactCustomerAcquisitionInfo `json:"link"`
+	Link struct {
+		//获客链接的名称
+		LinkName string `json:"link_name"`
+		//获客链接实际的url
+		Url string `json:"url"`
+		//创建时间
+		CreateTime int `json:"create_time"`
+		//是否无需验证，默认为true
+		SkipVerify bool `json:"skip_verify"`
+		//该获客链接使用范围
+		Range ExternalContactCustomerAcquisitionRange `json:"range"`
+		//优先级选项
+		PriorityOption ExternalContactCustomerAcquisitionPriorityOption `json:"priority_option"`
+	} `json:"link"`
 }
 
 // ExternalContactCustomerAcquisitionCustomerInfo 获客助手客户信息

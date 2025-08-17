@@ -89,8 +89,9 @@ Name|Request Type|Response Type|Access Token|URL|Doc
 
 Name| Request Type                                    | Response Type                                    |Access Token| URL                                                            |Doc
 :---|-------------------------------------------------|--------------------------------------------------|------------|:---------------------------------------------------------------|:--
-`execExternalContactCustomerAcquisitionLinkList`| `reqExternalContactCustomerAcquisitionLinkList` | `respExternalContactCustomerAcquisitionLinkList` |+| `POST /cgi-bin/externalcontact/customer_acquisition/list_link` |[获取获客链接列表](https://developer.work.weixin.qq.com/document/path/97297)
-`execExternalContactCustomerAcquisitionInfo`| `reqExternalContactCustomerAcquisitionInfo`     | `respExternalContactCustomerAcquisitionInfo`     |+| `POST /cgi-bin/externalcontact/customer_acquisition/get`       |[获取获客链接详情](https://developer.work.weixin.qq.com/document/path/97297)
+`execExternalContactCustomerAcquisitionLinkList`| `reqExternalContactCustomerAcquisitionLinkList` | `respExternalContactCustomerAcquisitionLinkList` |+| `POST /cgi-bin/externalcontact/customer_acquisition/list_link` |[获取获客链接列表](https://developer.work.weixin.qq.com/document/path/97394#%E8%8E%B7%E5%8F%96%E8%8E%B7%E5%AE%A2%E9%93%BE%E6%8E%A5%E5%88%97%E8%A1%A8)
+`execExternalContactCustomerAcquisitionInfo`| `reqExternalContactCustomerAcquisitionInfo`     | `respExternalContactCustomerAcquisitionInfo`     |+| `POST /cgi-bin/externalcontact/customer_acquisition/get`       |[获取获客链接详情](https://developer.work.weixin.qq.com/document/path/97394#%E8%8E%B7%E5%8F%96%E8%8E%B7%E5%AE%A2%E9%93%BE%E6%8E%A5%E8%AF%A6%E6%83%85)
+`execExternalContactCustomerAcquisitionCreate`| `reqExternalContactCustomerAcquisitionCreate`   | `respExternalContactCustomerAcquisitionCreate`     |+| `POST /cgi-bin/externalcontact/customer_acquisition/create_link`       |[创建获客链接](https://developer.work.weixin.qq.com/document/path/97394#%E5%88%9B%E5%BB%BA%E8%8E%B7%E5%AE%A2%E9%93%BE%E6%8E%A5)
 `execExternalContactCustomerAcquisitionCustomer`| `reqExternalContactCustomerAcquisitionCustomer` | `respExternalContactCustomerAcquisitionCustomer` |+| `POST /cgi-bin/externalcontact/customer_acquisition/customer`  |[获取获客客户列表](https://developer.work.weixin.qq.com/document/path/97298)
 
 
