@@ -665,7 +665,19 @@ type reqExternalContactCustomerAcquisitionCreate struct {
 var _ bodyer = reqExternalContactCustomerAcquisitionCreate{}
 
 func (x reqExternalContactCustomerAcquisitionCreate) intoBody() ([]byte, error) {
-	return marshalIntoJSONBody(x)
+
+	obj := map[string]any{
+		"link_name":   x.LinkName,
+		"skip_verify": x.SkipVerify,
+	}
+
+	if len(x.Range.UserList) > 0 || len(x.Range.DepartmentList) > 0 {
+		obj["range"] = x.Range
+	}
+	if len(x.PriorityOption.PriorityUseridList) > 0 || x.PriorityOption.PriorityType != 0 {
+		obj["priority_option"] = x.PriorityOption
+	}
+	return marshalIntoJSONBody(obj)
 }
 
 // respExternalContactCustomerAcquisitionCreate 创建获客链接
