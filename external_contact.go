@@ -48,20 +48,20 @@ func (c *WorkwxApp) ListExternalContactCustomerAcquisitionLink(cursor string, li
 	if err != nil {
 		return nil, err
 	}
-	return &ExternalContactCustomerAcquisitionLinkListResp{Result: resp.LinkIdList, NextCursor: resp.NextCursor}, nil
+	return &ExternalContactCustomerAcquisitionLinkListResp{Result: resp.LinkIDList, NextCursor: resp.NextCursor}, nil
 }
 
 // GetExternalContactCustomerAcquisitionLink 获取获客链接详情
-func (c *WorkwxApp) GetExternalContactCustomerAcquisitionLink(linkId string) (*ExternalContactCustomerAcquisitionInfo, error) {
+func (c *WorkwxApp) GetExternalContactCustomerAcquisitionLink(linkID string) (*ExternalContactCustomerAcquisitionInfo, error) {
 	resp, err := c.execExternalContactCustomerAcquisitionInfo(reqExternalContactCustomerAcquisitionInfo{
-		LinkId: linkId,
+		LinkID: linkID,
 	})
 	if err != nil {
 		return nil, err
 	}
 	return &ExternalContactCustomerAcquisitionInfo{
 		LinkName:       resp.Link.LinkName,
-		Url:            resp.Link.Url,
+		URL:            resp.Link.URL,
 		CreateTime:     time.Unix(int64(resp.Link.CreateTime), 0),
 		SkipVerify:     resp.Link.SkipVerify,
 		Range:          resp.Link.Range,
@@ -81,17 +81,17 @@ func (c *WorkwxApp) CreateExternalContactCustomerAcquisitionLink(linkName string
 		return nil, err
 	}
 	return &ExternalContactCustomerAcquisitionCreateResp{
-		LinkId:     resp.Link.LinkId,
+		LinkID:     resp.Link.LinkID,
 		LinkName:   resp.Link.LinkName,
-		Url:        resp.Link.Url,
+		URL:        resp.Link.URL,
 		CreateTime: time.Unix(int64(resp.Link.CreateTime), 0),
 	}, nil
 }
 
 // ExternalContactCustomerAcquisitionCustomer 获取获客客户列表
-func (c *WorkwxApp) ExternalContactCustomerAcquisitionCustomer(linkId string, cursor string, limit int) (*ExternalContactCustomerAcquisitionCustomerResp, error) {
+func (c *WorkwxApp) ExternalContactCustomerAcquisitionCustomer(linkID string, cursor string, limit int) (*ExternalContactCustomerAcquisitionCustomerResp, error) {
 	resp, err := c.execExternalContactCustomerAcquisitionCustomer(reqExternalContactCustomerAcquisitionCustomer{
-		LinkId: linkId,
+		LinkID: linkID,
 		Cursor: cursor,
 		Limit:  limit,
 	})

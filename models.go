@@ -615,7 +615,7 @@ func (x reqExternalContactCustomerAcquisitionLinkList) intoBody() ([]byte, error
 type respExternalContactCustomerAcquisitionLinkList struct {
 	respCommon
 	NextCursor string   `json:"next_cursor"`
-	LinkIdList []string `json:"link_id_list"`
+	LinkIDList []string `json:"link_id_list"`
 }
 
 // ExternalContactCustomerAcquisitionInfo 获客链接信息
@@ -623,7 +623,7 @@ type ExternalContactCustomerAcquisitionInfo struct {
 	//获客链接的名称
 	LinkName string `json:"link_name"`
 	//获客链接实际的url
-	Url string `json:"url"`
+	URL string `json:"url"`
 	//创建时间
 	CreateTime time.Time `json:"create_time"`
 	//是否无需验证，默认为true
@@ -685,29 +685,29 @@ type respExternalContactCustomerAcquisitionCreate struct {
 	respCommon
 	Link struct {
 		//获客链接的id
-		LinkId string `json:"link_id"`
+		LinkID string `json:"link_id"`
 		//获客链接的名称
 		LinkName string `json:"link_name"`
 		//获客链接实际的url
-		Url string `json:"url"`
+		URL string `json:"url"`
 		//创建时间
 		CreateTime int `json:"create_time"`
 	} `json:"link"`
 }
 
 type ExternalContactCustomerAcquisitionCreateResp struct {
-	LinkId string `json:"link_id"`
+	LinkID string `json:"link_id"`
 	//获客链接的名称
 	LinkName string `json:"link_name"`
 	//获客链接实际的url
-	Url string `json:"url"`
+	URL string `json:"url"`
 	//创建时间
 	CreateTime time.Time `json:"create_time"`
 }
 
 // reqExternalContactCustomerAcquisitionInfo 获客链接信息
 type reqExternalContactCustomerAcquisitionInfo struct {
-	LinkId string `json:"link_id"`
+	LinkID string `json:"link_id"`
 }
 
 var _ bodyer = reqExternalContactCustomerAcquisitionInfo{}
@@ -723,7 +723,7 @@ type respExternalContactCustomerAcquisitionInfo struct {
 		//获客链接的名称
 		LinkName string `json:"link_name"`
 		//获客链接实际的url
-		Url string `json:"url"`
+		URL string `json:"url"`
 		//创建时间
 		CreateTime int `json:"create_time"`
 		//是否无需验证，默认为true
@@ -740,7 +740,7 @@ type ExternalContactCustomerAcquisitionCustomerInfo struct {
 	//客户external_userid
 	ExternalUserid string `json:"external_userid"`
 	//通过获客链接添加此客户的跟进人userid
-	UserId string `json:"userid"`
+	UserID string `json:"userid"`
 	//会话状态，0-客户未发消息 1-客户已发送消息 2-客户发送消息状态未知
 	ChatStatus int `json:"chat_status"`
 	//用于区分客户具体是通过哪个获客链接进行添加，用户可在获客链接后拼接customer_channel=自定义字符串，字符串不超过64字节，超过会被截断。通过点击带有customer_channel参数的链接获取到的客户，调用获客信息接口或获取客户详情接口时，返回的state参数即为链接后拼接自定义字符串
@@ -755,7 +755,7 @@ type ExternalContactCustomerAcquisitionCustomerResp struct {
 
 // reqExternalContactCustomerAcquisitionCustomer 获客助手客户信息
 type reqExternalContactCustomerAcquisitionCustomer struct {
-	LinkId string `json:"link_id"`
+	LinkID string `json:"link_id"`
 	Cursor string `json:"cursor"`
 	Limit  int    `json:"limit"`
 }
